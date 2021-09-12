@@ -87,7 +87,7 @@
                                 </p>
                                 <h4><a href="#">{{ $classesProduct->name }}</a></h4>
                                 <h6>{{ $classesProduct->teacher_name }}<span>- Yoga Teacher</span></h6>
-                                <a href="classes-details-1.html" class="class-btn">JOIN NOW</a>
+                                <a href="./classes/{id}" class="class-btn">JOIN NOW</a>
                             </div>
                         </div>
 
@@ -95,9 +95,15 @@
                 @endforeach
                 <div class="col-lg-12">
                     <div class="classes__pagination">
-                        <a href="classes.html">1</a>
-                        <a href="classes-2.html">2</a>
-                        <a href="classes-2.html"><span class="arrow_carrot-right"></span></a>
+
+                        @if($page>1)
+                            <a style="cursor: pointer" onclick="getPage('{{$page-1}}')"><</a>
+                        @endif
+                        <a onclick="getPage('{{$page}}')" href="#">{{$page}}</a>
+                        @if(($page<3))
+                            <a style="cursor: pointer" onclick="getPage('{{$page+1}}')">></a>
+                        @endif
+
                     </div>
                 </div>
             </div>
@@ -128,7 +134,7 @@
                                 <p>{{ $classProduct->study_time }}</p>
                                 <h4><a href="#">{{ $classProduct->name }}</a></h4>
                                 <h6>{{ $classProduct->teacher_name }}<span>- Yoga Teacher</span></h6>
-                                <a href="./classes-details-1" class="class-btn">JOIN NOW</a>
+                                <a href="./classes/{id}" class="class-btn">JOIN NOW</a>
                             </div>
                         </div>
 
@@ -137,6 +143,8 @@
             </div>
         </div>
     </section>
+
+    <script src="front/js/blog.js"></script>
 
 
 @endsection

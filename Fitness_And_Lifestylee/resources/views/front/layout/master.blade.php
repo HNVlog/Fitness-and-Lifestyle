@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="zxx">
 
-<!-- Mirrored from preview.colorlib.com/theme/zogin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 23 Aug 2021 14:56:27 GMT -->
 <head>
+
+    <base href="{{ asset('/') }}">
     <meta charset="UTF-8">
     <meta name="description" content="Directing Template">
     <meta name="keywords" content="Directing, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Zogin | Home</title>
+    <title>@yield('title')</title>
 
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="front/css/bootstrap.min.css%2bfont-awesome.min.css%2belegant-icons.css%2bnice-select.css%2bbarfiller.css%2bowl.carousel.min.css%2bslicknav.min.css%2bstyle.css.pagespeed.cc.pxOhNsQAeq.css" type="text/css" />
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="front/css/style.css" type="text/css">
+
 </head>
 
 {{--headder--}}

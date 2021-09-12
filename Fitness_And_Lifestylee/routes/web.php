@@ -21,3 +21,5 @@ Route::get('/search', [Front\BlogController::class, 'index']);
 Route::post('/search', [Front\BlogController::class, 'index'])->name('search');
 Route::get('/pricing', [Front\PricingController::class, 'pricing']);
 Route::get('/{categoryName}', [Front\BlogController::class, 'category']);
+Route::get('/classes/{id}', [Front\ClassesDetailController::class, 'show']);
+Route::post('/classes/{id}', [Front\ClassesDetailController::class, 'postComment']);

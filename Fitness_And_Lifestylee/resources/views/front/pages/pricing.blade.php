@@ -1,7 +1,7 @@
 
 @extends('front.layout.master')
 
-@section('title','Home')
+@section('title','Pricing')
 
 @section('body')
 

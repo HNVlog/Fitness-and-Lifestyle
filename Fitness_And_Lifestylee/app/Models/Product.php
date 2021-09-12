@@ -33,4 +33,7 @@ class Product extends Model
     public function orderDetails(){
         return $this->hasMany(OrderDetail::class, 'product_id', 'id');
     }
+    public function productDetail(){
+        return $this->belongsTo(ClassesDetail::class, 'product_id', 'id');
+    }
 }
