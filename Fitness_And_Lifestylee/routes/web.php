@@ -17,6 +17,7 @@ Route::get('/', [Front\HomeController::class, 'index']);
 Route::get('/about', [Front\AboutController::class, 'index']);
 Route::get('/classes', [Front\ClassesController::class, 'index']);
 Route::get('/blog', [Front\BlogController::class, 'index']);
+Route::get('/blog/{id}', [Front\BlogDetailController::class, 'show']);
 Route::get('/search', [Front\BlogController::class, 'index']);
 Route::post('/search', [Front\BlogController::class, 'index'])->name('search');
 Route::get('/pricing', [Front\PricingController::class, 'pricing']);

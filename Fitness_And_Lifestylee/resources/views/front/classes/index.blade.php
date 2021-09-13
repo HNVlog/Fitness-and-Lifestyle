@@ -87,7 +87,7 @@
                                 </p>
                                 <h4><a href="#">{{ $classesProduct->name }}</a></h4>
                                 <h6>{{ $classesProduct->teacher_name }}<span>- Yoga Teacher</span></h6>
-                                <a href="./classes/{id}" class="class-btn">JOIN NOW</a>
+                                <a href="./classes/{{ $classesProduct->id }}" class="class-btn">JOIN NOW</a>
                             </div>
                         </div>
 

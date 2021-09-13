@@ -127,8 +127,8 @@
                                 </div>
                             </div>
 
-
                         </div>
+
                         <div class="classes__details__desc">
                             <h6>The Secret to improving her height to achieve quick result, If you are going to use a
                                 passage of you need to be sure.</h6>

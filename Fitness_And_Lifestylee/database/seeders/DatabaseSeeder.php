@@ -68,88 +68,149 @@ class DatabaseSeeder extends Seeder
         DB::table('blogs')->insert([
 
             [
+                'id' => 1,
                 'user_id' => 3,
                 'blog_category_id' => 1,
                 'title' => '6 ways to prepare breakfast for 30',
                 'subtitle' => 'Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat',
                 'image' => 'blog-1.jpg',
-                'content' => '',
+                'content' => 'Keeping fit during your university years may not be at the front of your mind, but by
+                                maintaining a healthy body, you’re going to see some positive side effects spilling into
+                                the rest of your uni life, from having better concentration to having more energy to
+                                party.',
+                'content_2' => '',
                 'category' => 'Fuel',
             ],
             [
+                'id' => 2,
                 'user_id' => 3,
                 'blog_category_id' => 2,
                 'title' => 'You can keep fit at university',
                 'subtitle' => 'Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat',
                 'image' => 'blog-2.jpg',
-                'content' => '',
+                'content' => 'Keeping fit during your university years may not be at the front of your mind, but by
+                                maintaining a healthy body, you’re going to see some positive side effects spilling into
+                                the rest of your uni life, from having better concentration to having more energy to
+                                party.',
+                'content_2' => '',
                 'category' => 'Sweat',
             ],
             [
+                'id' => 3,
                 'user_id' => 3,
                 'blog_category_id' => 3,
                 'title' => '6 reasons to get rebounding',
                 'subtitle' => 'Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat',
                 'image' => 'blog-3.jpg',
-                'content' => '',
+                'content' => 'Keeping fit during your university years may not be at the front of your mind, but by
+                                maintaining a healthy body, you’re going to see some positive side effects spilling into
+                                the rest of your uni life, from having better concentration to having more energy to
+                                party.',
+                'content_2' => '',
                 'category' => 'Play',
             ],
             [
+                'id' => 4,
                 'user_id' => 3,
                 'blog_category_id' => 4,
                 'title' => 'Cooking tips make cooking simple',
                 'subtitle' => 'Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat',
                 'image' => 'blog-4.jpg',
-                'content' => '',
+                'content' => 'Keeping fit during your university years may not be at the front of your mind, but by
+                                maintaining a healthy body, you’re going to see some positive side effects spilling into
+                                the rest of your uni life, from having better concentration to having more energy to
+                                party.',
+                'content_2' => '',
                 'category' => 'Live',
             ],
             [
+                'id' => 5,
                 'user_id' => 3,
                 'blog_category_id' => 1,
                 'title' => 'Optimise your muscle gains',
                 'subtitle' => 'Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat',
                 'image' => 'blog-5.jpg',
-                'content' => '',
+                'content' => 'Keeping fit during your university years may not be at the front of your mind, but by
+                                maintaining a healthy body, you’re going to see some positive side effects spilling into
+                                the rest of your uni life, from having better concentration to having more energy to
+                                party.',
+                'content_2' => '',
                 'category' => 'Weight',
             ],
             [
+                'id' => 6,
                 'user_id' => 3,
                 'blog_category_id' => 2,
                 'title' => 'Cooking tips make cooking simple',
                 'subtitle' => 'Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat',
                 'image' => 'blog-6.jpg',
-                'content' => '',
+                'content' => 'Keeping fit during your university years may not be at the front of your mind, but by
+                                maintaining a healthy body, you’re going to see some positive side effects spilling into
+                                the rest of your uni life, from having better concentration to having more energy to
+                                party.',
+                'content_2' => '',
                 'category' => 'Beauty',
             ],
             [
+                'id' => 7,
                 'user_id' => 3,
                 'blog_category_id' => 3,
                 'title' => '09 Kinds Of Vegetables Protect The Liver',
                 'subtitle' => 'Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat',
-                'image' => 'healthy-4.jpg',
-                'content' => '',
+                'image' => 'healthy-1.jpg',
+                'content' => 'Keeping fit during your university years may not be at the front of your mind, but by
+                                maintaining a healthy body, you’re going to see some positive side effects spilling into
+                                the rest of your uni life, from having better concentration to having more energy to
+                                party.',
+                'content_2' => '',
                 'category' => 'Yoga Ball',
             ],
             [
+                'id' => 8,
                 'user_id' => 3,
                 'blog_category_id' => 4,
                 'title' => 'Tips You To Balance Nutrition Meal Day',
                 'subtitle' => 'Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat',
                 'image' => 'healthy-2.jpg',
-                'content' => '',
+                'content' => 'Keeping fit during your university years may not be at the front of your mind, but by
+                                maintaining a healthy body, you’re going to see some positive side effects spilling into
+                                the rest of your uni life, from having better concentration to having more energy to
+                                party.',
+                'content_2' => '',
                 'category' => 'Fruit',
             ],
             [
+                'id' => 9,
                 'user_id' => 3,
                 'blog_category_id' => 1,
                 'title' => '4 Principles Help You Lose Weight With Vegetables',
                 'subtitle' => 'Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat',
                 'image' => 'healthy-3.jpg',
-                'content' => '',
+                'content' => 'Keeping fit during your university years may not be at the front of your mind, but by
+                                maintaining a healthy body, you’re going to see some positive side effects spilling into
+                                the rest of your uni life, from having better concentration to having more energy to
+                                party.',
+                'content_2' => 'Seriously, skip a session and get some rest. There will be some days when taking a nap
+                                will have way more benefit to you than putting in a hard session and feeling exhausted.
+                                Exercise is supposed to energise and inspire.',
                 'category' => 'Healthy Food',
             ],
         ]);
+        DB::table('blog_images')->insert([
+            [
+                'blog_id' => 9,
+                'path' => 'healthy-4.jpg',
+            ],
+            [
+                'blog_id' => 9,
+                'path' => 'healthy-5.jpg',
+            ],
+            [
+                'blog_id' => 9,
+                'path' => 'healthy-6.jpg',
+            ],
 
+        ]);
 
         DB::table('product_categories')->insert([
             [
@@ -302,7 +363,7 @@ class DatabaseSeeder extends Seeder
                 'rating' => 5,
             ],
             [
-                'blog_id' => 1,
+                'blog_id' => 9,
                 'user_id' => 5,
                 'email' => 'roybanks@gmail.com',
                 'name' => 'Roy Banks',
@@ -310,10 +371,10 @@ class DatabaseSeeder extends Seeder
                 'rating' => 3,
             ],
             [
-                'blog_id' => 1,
-                'user_id' => 1,
+                'blog_id' => 9,
+                'user_id' => 5,
                 'email' => 'codelean@gmail.com',
-                'name' => 'Beckham Anselm',
+                'name' => 'Roy Banks',
                 'messages' => 'Good! I have improved a lot thanks to this lesson.',
                 'rating' => 4,
             ],

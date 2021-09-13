@@ -1,6 +1,6 @@
 @extends('front.layout.master')
 
-@section('title','Home')
+@section('title','Blog')
 
 @section('body')
 
@@ -39,10 +39,6 @@
                                 <li onclick="getCategory('All')"><a style="cursor: pointer" >All</a></li>
                                 @foreach($blogCategories as $category)
                                     <li onclick="getCategory('{{$category->name}}')"><a style="cursor: pointer" >{{$category->name}}</a></li>
-                                    {{--                            <li onclick="getCategory('Fuel')"><a href="#">Fuel (20)</a></li>--}}
-                                    {{--                            <li onclick="getCategory('Sweat')"><a href="#">Sweat (5)</a></li>--}}
-                                    {{--                            <li onclick="getCategory('Play')"><a href="#">Play (9)</a></li>--}}
-                                    {{--                            <li onclick="getCategory('Live')"><a href="#">Live (10)</a></li>--}}
                                 @endforeach
                             </ul>
                         </div>
@@ -80,11 +76,6 @@
                             <h4>Search By Tags</h4>
                             @foreach($blogCategories as $category)
                                 <a onclick="getCategory('{{$category->tags}}')" style="cursor: pointer">{{$category->tags}}></a>
-                                {{--                        <a href="#">Weight</a>--}}
-                                {{--                        <a href="#">Beauty</a>--}}
-                                {{--                        <a href="#">Yoga Ball</a>--}}
-                                {{--                        <a href="#">Fruit</a>--}}
-                                {{--                        <a href="#">Healthy Food</a>--}}
                             @endforeach
                         </div>
                         <div class="blog__sidebar__comment">
@@ -132,9 +123,9 @@
 
                                             </li>
                                         </ul>
-                                        <h5><a href="blog-details.html">{{ $blog->title }}</a></h5>
+                                        <h5><a href="./blog/{{ $blog->id }}">{{ $blog->title }}</a></h5>
                                         <p>{{ $blog->subtitle }} </p>
-                                        <a href="blog-details.html" class="blog_read_more">READ MORE <span class="arrow_right"></span></a>
+                                        <a href="./blog/{{ $blog->id }}" class="blog_read_more">READ MORE <span class="arrow_right"></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -157,6 +148,7 @@
             </div>
         </div>
     </section>
+
 
     <script src="front/js/blog.js"></script>
 

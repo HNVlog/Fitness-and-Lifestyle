@@ -19,4 +19,13 @@ class Blog extends Model
     public function blogCategories(){
         return $this->belongsTo(BlogCategory::class,'blog_category_id', 'id');
     }
+    public function blogDetails(){
+        return $this->hasMany(BlogComment::class, 'blog_id', 'id');
+    }
+    public function blogImages(){
+        return $this->hasMany(BlogImage::class, 'blog_id', 'id');
+    }
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }
