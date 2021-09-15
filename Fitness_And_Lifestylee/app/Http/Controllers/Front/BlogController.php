@@ -16,7 +16,7 @@ class BlogController extends Controller
 
 //        $blogCategoriess = BlogCategory::all();
         $blogs = Blog::orderBy('id', 'desc')->get();
-//
+
 //        $blogss = Blog::orderBy('id', 'desc')->limit(3)->get();
 //
 //        $bloggs = Blog::paginate(3);
@@ -41,7 +41,7 @@ class BlogController extends Controller
 
         $blogs = $blogs->forPage($page, 6)->all();
 
-        return view('front.blog.index', compact('blogs', 'page', 'blogCategories','blogComments'));
+        return view('front.blog.index', compact('blogs', 'page', 'blogCategories', 'blogComments'));
     }
 
 

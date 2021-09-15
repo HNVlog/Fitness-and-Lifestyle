@@ -1,6 +1,6 @@
 @extends('front.layout.master')
 
-@section('title','Home')
+@section('title','Classes')
 
 @section('body')
 
@@ -73,7 +73,6 @@
             <div class="row">
                 @foreach($classesProducts as $classesProduct)
                     <div class="col-lg-4 col-md-6 col-sm-6">
-
                         <div class="classes__item">
                             <div class="classes__item__pic set-bg" data-setbg="front/img/{{ $classesProduct->productImages[0]->path }}">
                                 <span>{{ date('M d, Y', strtotime($classesProduct->created_at)) }}</span>
@@ -87,7 +86,7 @@
                                 </p>
                                 <h4><a href="#">{{ $classesProduct->name }}</a></h4>
                                 <h6>{{ $classesProduct->teacher_name }}<span>- Yoga Teacher</span></h6>
-                                <a href="./classes/{{ $classesProduct->id }}" class="class-btn">JOIN NOW</a>
+                                <a href="./classes/detail?Product_Id={{$classesProduct->id}}" class="class-btn">JOIN NOW</a>
                             </div>
                         </div>
 
@@ -100,10 +99,13 @@
                             <a style="cursor: pointer" onclick="getPage('{{$page-1}}')"><</a>
                         @endif
                         <a onclick="getPage('{{$page}}')" href="#">{{$page}}</a>
-                        @if(($page<3))
+                        @if(($page<4))
                             <a style="cursor: pointer" onclick="getPage('{{$page+1}}')">></a>
                         @endif
 
+                        {{--                        <a href="classes.html">1</a>--}}
+                        {{--                        <a href="classes-2.html">2</a>--}}
+                        {{--                        <a href="classes-2.html"><span class="arrow_carrot-right"></span></a>--}}
                     </div>
                 </div>
             </div>
@@ -134,7 +136,7 @@
                                 <p>{{ $classProduct->study_time }}</p>
                                 <h4><a href="#">{{ $classProduct->name }}</a></h4>
                                 <h6>{{ $classProduct->teacher_name }}<span>- Yoga Teacher</span></h6>
-                                <a href="./classes/{id}" class="class-btn">JOIN NOW</a>
+                                <a href="./classes-details-1" class="class-btn">JOIN NOW</a>
                             </div>
                         </div>
 

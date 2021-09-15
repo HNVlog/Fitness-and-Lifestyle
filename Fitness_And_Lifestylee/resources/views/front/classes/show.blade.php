@@ -1,7 +1,7 @@
 
 @extends('front.layout.master')
 
-@section('title','Classes')
+@section('title','Class Detail')
 
 @section('body')
 
@@ -24,14 +24,13 @@
 
 
     <section class="classes-details spad">
+
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
                     <div class="classes__sidebar">
                         <div class="classes__sidebar__item classes__sidebar__item--info">
                             <h4>Classes Information</h4>
-                            @foreach($classDetails as $classDetail)
-                            @endforeach
                             <ul class="classes__sidebar__item__widget">
                                 <li><span class="icon_calendar"></span>{{$classDetail->study_date}}</li>
                                 <li><span class="icon_clock_alt"></span> {{$classDetail->study_time}}</li>
@@ -40,13 +39,13 @@
                                 <li><span class="icon_pin_alt"></span> {{$classDetail->address}}</li>
                                 <li><span class="icon_id"></span> {{$classDetail->teacher_name}}</li>
                             </ul>
-                            <a href="#" class="sidebar-btn">JOIN NOW</a>
+                            <a href="./cart/add/{{$classDetail->id}}" class="sidebar-btn">Add to cart</a>
                         </div>
                         <div class="classes__sidebar__item">
                             <h4>About Instructor</h4>
                             <div class="classes__sidebar__instructor">
                                 <div class="classes__sidebar__instructor__pic">
-                                    <img src="front/img/{{$classDetail->avatar}}" alt="">
+                                    <img src="front/img/{{ $classDetail->avatar }}" alt="">
                                 </div>
                                 <div class="classes__sidebar__instructor__text">
                                     <div class="classes__sidebar__instructor__title">
@@ -66,29 +65,25 @@
                         <div class="classes__sidebar__item">
                             <h4>Review & Comment</h4>
                             <div class="classes__sidebar__comment__list">
-                                @foreach( $blogComments as $blogComment)
-                                    <div class="classes__sidebar__comment">
-                                        <div class="classes__sidebar__comment__pic">
-                                            <img src="front/img/user/{{ $blogComment->user->avatar ?? 'default-avatar.jpg' }}" alt="">
-                                            <div class="classes__sidebar__comment__rating">
-                                                @for( $i = 1; $i <= 5; $i++)
-                                                    @if($i <= $blogComment->rating)
-                                                        <i class="fa fa-star"></i>
-                                                    @else
-                                                        <i class="fa fa-star-o"></i>
-                                                    @endif
-                                                @endfor
-                                            </div>
+                                <div class="classes__sidebar__comment">
+                                    <div class="classes__sidebar__comment__pic">
+                                        <img src="front/img/user/{{ $blogComment->user->avatar ?? 'default-avatar.jpg' }}" alt="">
+                                        <div class="classes__sidebar__comment__rating">
+                                            @for( $i = 1; $i <= 5; $i++)
+                                                @if($i <= $blogComment->rating)
+                                                    <i class="fa fa-star"></i>
+                                                @else
+                                                    <i class="fa fa-star-o"></i>
+                                                @endif
+                                            @endfor
                                         </div>
-                                        <div class="classes__sidebar__comment__text">
-                                            <span>{{date('M d, Y', strtotime($blogComment->created_at))}}</span>
-                                            <h6>{{$blogComment->name}}</h6>
-                                            <p>{{$blogComment->messages}}</p>
-                                        </div>
-
                                     </div>
-                                @endforeach
-
+                                    <div class="classes__sidebar__comment__text">
+                                        <span>{{date('M d, Y', strtotime($blogComment->created_at))}}</span>
+                                        <h6>{{$blogComment->name}}</h6>
+                                        <p>{{$blogComment->messages}}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -96,8 +91,7 @@
                 <div class="col-lg-8">
                     <div class="classes__details">
                         <div class="classes__details__large">
-                            @foreach($classesProducts as $classesImage)
-                            @endforeach
+
                             <img src="front/img/{{$classesImage->path }}" alt="">
                             <span>Beginer</span>
                         </div>
@@ -108,8 +102,6 @@
                         <h2>{{$classDetail->name}}</h2>
                         <p>{{$classDetail->content}}</p>
                         <div class="classes__details__item">
-
-
                             <div class="row">
                                 <div class="col-lg-4 col-md-4">
                                     <img src="front/img/{{ $classesImage->path_1 }}" alt="">
@@ -126,9 +118,7 @@
                                     <img src="front/img/{{ $classesImage->path_4 }}" alt="">
                                 </div>
                             </div>
-
                         </div>
-
                         <div class="classes__details__desc">
                             <h6>The Secret to improving her height to achieve quick result, If you are going to use a
                                 passage of you need to be sure.</h6>
@@ -144,8 +134,27 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-12">
+                    <div class="classes__pagination">
+                        @if($path>1)
+                            <a style="cursor: pointer" onclick="getPath('{{$path-1}}')"><</a>
+                        @endif
+                        <a onclick="getPath('{{$path}}')" href="#">{{$path}}</a>
+                        @if(($path<4))
+                            <a style="cursor: pointer" onclick="getPath('{{$path+1}}')">></a>
+                        @endif
+                    </div>
+                </div>
             </div>
         </div>
+
+
+        {{--            <div class="col-lg-12">--}}
+        {{--                <div class="classes__pagination">--}}
+
+        {{--                </div>--}}
+        {{--            </div>--}}
+
     </section>
 
 
@@ -156,40 +165,36 @@
                     <div class="leave__comment__text">
                         <h2>Leave A Comment</h2>
                         <form action="" method="post" >
-
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <input type="text" placeholder="Name*">
                                 </div>
                                 <div class="col-lg-6 col-md-6">
-                                    <input type="text" placeholder="Email*">
+                                    <input type="email" placeholder="Email*">
                                 </div>
-
                                 <div class="col-lg-12 text-center">
-
                                     <textarea placeholder="Your Comment"></textarea>
-                                    <div class="col-lg-12">
-                                        <div class="leave__comment__rating">
-                                            <div class="personal-rating">
-                                                <h6 style="float: left ">Your Rating </h6>
-                                                <br>
-                                                <div class="rate">
-
-                                                    <input type="radio" id="star5" name="rating" value="5" />
-                                                    <label for="star5" title="text">5 stars</label>
-                                                    <input type="radio" id="star4" name="rating" value="4" />
-                                                    <label for="star4" title="text">4 stars</label>
-                                                    <input type="radio" id="star3" name="rating" value="3" />
-                                                    <label for="star3" title="text">3 stars</label>
-                                                    <input type="radio" id="star2" name="rating" value="2" />
-                                                    <label for="star2" title="text">2 stars</label>
-                                                    <input type="radio" id="star1" name="rating" value="1" />
-                                                    <label for="star1" title="text">1 star</label>
-
-                                                </div>
+                                </div>
+                                <div class="col-lg-12 text-center">
+                                    <div class="leave__comment__rating">
+                                        <div class="personal-rating">
+                                            <div class="rate">
+                                                <h4 style="float: left ">Your Rating </h4>
+                                                <input type="radio" id="star5" name="rating" value="5" />
+                                                <label for="star5" title="text">5 stars</label>
+                                                <input type="radio" id="star4" name="rating" value="4" />
+                                                <label for="star4" title="text">4 stars</label>
+                                                <input type="radio" id="star3" name="rating" value="3" />
+                                                <label for="star3" title="text">3 stars</label>
+                                                <input type="radio" id="star2" name="rating" value="2" />
+                                                <label for="star2" title="text">2 stars</label>
+                                                <input type="radio" id="star1" name="rating" value="1" />
+                                                <label for="star1" title="text">1 star</label>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="col-lg-12 text-center">
                                     <button type="submit" class="site-btn">Submit</button>
                                 </div>
                             </div>
@@ -224,7 +229,7 @@
                                 <p>{{ $classProduct->study_time }}</p>
                                 <h4><a href="#">{{ $classProduct->name }}</a></h4>
                                 <h6>{{ $classProduct->teacher_name }}<span>- Yoga Teacher</span></h6>
-                                <a href="./classes-details-1" class="class-btn">JOIN NOW</a>
+                                <a href="./" class="class-btn">JOIN NOW</a>
                             </div>
                         </div>
 
@@ -233,6 +238,8 @@
             </div>
         </div>
     </section>
+
+    <script src="front/js/blog.js"></script>
 
 
 @endsection

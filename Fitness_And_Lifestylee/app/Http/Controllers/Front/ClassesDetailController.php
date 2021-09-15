@@ -11,18 +11,48 @@ use App\Models\ClassesDetail;
 
 class ClassesDetailController extends Controller
 {
-    public function show($id){
+    public function show(Request  $request){
         $classDetails = ClassesDetail::all();
-        $blogComments =BlogComment::all();
+        $blogComments = BlogComment::all();
         $classProducts = Product::where('featured',true)->where('product_category_id',1)->limit(3)->get();
-        $classesProducts =ProductImage::all();
+        $classesImages = ProductImage::all();
 
-        return view('front.classes.show',compact('classDetails','blogComments','classProducts','classesProducts'));
+        $Product_Id = $request -> input('Product_Id');
+        if (is_null($Product_Id)) {
+            $Product_Id = 1;
+        }
+
+        $path = $request -> input('path');
+        if (is_null($path)){
+            $path = 1;
+        }
+
+//        $classDetails = $classDetails->forPage($path, 1)->all();
+//        $blogComments = $blogComments->forPage($path, 1)->all();
+//        $classesProducts = $classesProducts->forPage($path, 1)->all();
+
+        $classesImage = $classesImages->where('product_id', '=', $Product_Id)->first();
+        $classDetail = $classDetails[$path-1];
+        $blogComment = $blogComments[$path-1];
+        $classesProduct = $classProducts->where('product_id', '=', $Product_Id)->first();
+
+
+        return view('front.classes.show',compact('classDetail','blogComment','classProducts','classesProduct', 'path', 'classesImage'));
     }
+
+//     Post Comments
     public function postComment(Request $request){
+        $request ->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'messages'=>'required',
+            'rating'=>'required',
+        ]);
         BlogComment::create($request->all());
+        return redirect()->route('/classes/{id}')
+            ->with('success','thành công');
 
-        return redirect()->back();
+//        return redirect()->back();
     }
-
 }
+

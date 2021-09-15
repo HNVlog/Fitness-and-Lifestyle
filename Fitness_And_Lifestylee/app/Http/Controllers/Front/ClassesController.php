@@ -58,13 +58,6 @@ class ClassesController extends Controller
         return view('front.classes.index', compact('classesProducts','classProducts', 'page'));
     }
 
-//$collection = collect([1, 2, 3, 4, 5, 6, 7, 8, 9]);
-//
-//$chunk = $collection->forPage(2, 3);
-//
-//$chunk->all();
-// [4, 5, 6]
-
 
 //    public function index() {
 //        $classesProducts = Product::where('featured',true)->where('product_category_id', 1)->get();

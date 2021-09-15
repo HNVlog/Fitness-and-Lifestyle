@@ -162,5 +162,50 @@
             }
         });
     });
+    /*-------------------
+            Quantity change
+        --------------------- */
+    var proQty = $('.pro-qty');
+    proQty.prepend('<span class="dec qtybtn">-</span>');
+    proQty.append('<span class="inc qtybtn">+</span>');
+    proQty.on('click', '.qtybtn', function () {
+        var $button = $(this);
+        var oldValue = $button.parent().find('input').val();
+        if ($button.hasClass('inc') && oldValue ==3) {
+            var newVal = 6;
+        } else if($button.hasClass('inc') && oldValue ==6) {
+            var newVal=12;
+        }else {
+            if (oldValue == 6) {
+                var newVal = 3;
+            } else if(oldValue == 12) {
+                newVal = 6;
+            }else {
+                newVal=3;
+            }
+        }
+        $button.parent().find('input').val(newVal);
+
+        // Update Cart:
+        const rowId=$button.parent().find('input').data('rowid');
+        updateCart(rowId,newVal);
+
+    });
+    function updateCart(rowId,qty){
+        $.ajax({
+            type:"GET",
+            url:"cart/update",
+            data:{rowId:rowId,qty:qty},
+            success:function (response){
+                // alert('Update successful!');
+                console.log(response);
+                location.reload();
+            },
+            error:function (error){
+                alert('Update failed.')
+                console.log(error);
+            }
+        })
+    }
 
 })(jQuery);

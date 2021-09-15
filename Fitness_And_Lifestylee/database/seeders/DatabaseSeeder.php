@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'codelean@gmail.com',
                 'phone' => '0123456789',
                 'password' => Hash::make('123456'),
-                'avatar' => 'avatar-3.jpg',
+                'avatar' => null,
                 'level' => 0,
             ],
             [
@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'admin@gmail.com',
                 'phone' => '0223456789',
                 'password' => Hash::make('123456'),
-                'avatar' => 'avatar-2.jpg',
+                'avatar' => null,
                 'level' => 0,
             ],
             [
@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'shanelynch@gmail.com',
                 'phone' => '0323456789',
                 'password' => Hash::make('123456'),
-                'avatar' => null,
+                'avatar' => 'avatar-0.jpg',
                 'level' => 1,
             ],
             [
@@ -68,149 +68,104 @@ class DatabaseSeeder extends Seeder
         DB::table('blogs')->insert([
 
             [
-                'id' => 1,
                 'user_id' => 3,
                 'blog_category_id' => 1,
                 'title' => '6 ways to prepare breakfast for 30',
                 'subtitle' => 'Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat',
                 'image' => 'blog-1.jpg',
-                'content' => 'Keeping fit during your university years may not be at the front of your mind, but by
-                                maintaining a healthy body, you’re going to see some positive side effects spilling into
-                                the rest of your uni life, from having better concentration to having more energy to
-                                party.',
-                'content_2' => '',
+                'content' => '',
                 'category' => 'Fuel',
             ],
             [
-                'id' => 2,
                 'user_id' => 3,
                 'blog_category_id' => 2,
                 'title' => 'You can keep fit at university',
                 'subtitle' => 'Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat',
                 'image' => 'blog-2.jpg',
-                'content' => 'Keeping fit during your university years may not be at the front of your mind, but by
-                                maintaining a healthy body, you’re going to see some positive side effects spilling into
-                                the rest of your uni life, from having better concentration to having more energy to
-                                party.',
-                'content_2' => '',
+                'content' => '',
                 'category' => 'Sweat',
             ],
             [
-                'id' => 3,
                 'user_id' => 3,
                 'blog_category_id' => 3,
                 'title' => '6 reasons to get rebounding',
                 'subtitle' => 'Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat',
                 'image' => 'blog-3.jpg',
-                'content' => 'Keeping fit during your university years may not be at the front of your mind, but by
-                                maintaining a healthy body, you’re going to see some positive side effects spilling into
-                                the rest of your uni life, from having better concentration to having more energy to
-                                party.',
-                'content_2' => '',
+                'content' => '',
                 'category' => 'Play',
             ],
             [
-                'id' => 4,
                 'user_id' => 3,
                 'blog_category_id' => 4,
                 'title' => 'Cooking tips make cooking simple',
                 'subtitle' => 'Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat',
                 'image' => 'blog-4.jpg',
-                'content' => 'Keeping fit during your university years may not be at the front of your mind, but by
-                                maintaining a healthy body, you’re going to see some positive side effects spilling into
-                                the rest of your uni life, from having better concentration to having more energy to
-                                party.',
-                'content_2' => '',
+                'content' => '',
                 'category' => 'Live',
             ],
             [
-                'id' => 5,
                 'user_id' => 3,
                 'blog_category_id' => 1,
                 'title' => 'Optimise your muscle gains',
                 'subtitle' => 'Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat',
                 'image' => 'blog-5.jpg',
-                'content' => 'Keeping fit during your university years may not be at the front of your mind, but by
-                                maintaining a healthy body, you’re going to see some positive side effects spilling into
-                                the rest of your uni life, from having better concentration to having more energy to
-                                party.',
-                'content_2' => '',
+                'content' => '',
                 'category' => 'Weight',
             ],
             [
-                'id' => 6,
                 'user_id' => 3,
                 'blog_category_id' => 2,
                 'title' => 'Cooking tips make cooking simple',
                 'subtitle' => 'Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat',
                 'image' => 'blog-6.jpg',
-                'content' => 'Keeping fit during your university years may not be at the front of your mind, but by
-                                maintaining a healthy body, you’re going to see some positive side effects spilling into
-                                the rest of your uni life, from having better concentration to having more energy to
-                                party.',
-                'content_2' => '',
+                'content' => '',
                 'category' => 'Beauty',
             ],
             [
-                'id' => 7,
                 'user_id' => 3,
                 'blog_category_id' => 3,
                 'title' => '09 Kinds Of Vegetables Protect The Liver',
                 'subtitle' => 'Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat',
-                'image' => 'healthy-1.jpg',
-                'content' => 'Keeping fit during your university years may not be at the front of your mind, but by
-                                maintaining a healthy body, you’re going to see some positive side effects spilling into
-                                the rest of your uni life, from having better concentration to having more energy to
-                                party.',
-                'content_2' => '',
+                'image' => 'healthy-4.jpg',
+                'content' => '',
                 'category' => 'Yoga Ball',
             ],
             [
-                'id' => 8,
                 'user_id' => 3,
                 'blog_category_id' => 4,
                 'title' => 'Tips You To Balance Nutrition Meal Day',
                 'subtitle' => 'Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat',
                 'image' => 'healthy-2.jpg',
-                'content' => 'Keeping fit during your university years may not be at the front of your mind, but by
-                                maintaining a healthy body, you’re going to see some positive side effects spilling into
-                                the rest of your uni life, from having better concentration to having more energy to
-                                party.',
-                'content_2' => '',
+                'content' => '',
                 'category' => 'Fruit',
             ],
             [
-                'id' => 9,
                 'user_id' => 3,
                 'blog_category_id' => 1,
                 'title' => '4 Principles Help You Lose Weight With Vegetables',
                 'subtitle' => 'Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat',
                 'image' => 'healthy-3.jpg',
-                'content' => 'Keeping fit during your university years may not be at the front of your mind, but by
-                                maintaining a healthy body, you’re going to see some positive side effects spilling into
-                                the rest of your uni life, from having better concentration to having more energy to
-                                party.',
-                'content_2' => 'Seriously, skip a session and get some rest. There will be some days when taking a nap
-                                will have way more benefit to you than putting in a hard session and feeling exhausted.
-                                Exercise is supposed to energise and inspire.',
+                'content' => '',
                 'category' => 'Healthy Food',
             ],
         ]);
+
         DB::table('blog_images')->insert([
             [
-                'blog_id' => 9,
+                'blog_id' => 1,
                 'path' => 'healthy-4.jpg',
             ],
             [
-                'blog_id' => 9,
+                'blog_id' => 2,
                 'path' => 'healthy-5.jpg',
             ],
             [
-                'blog_id' => 9,
+                'blog_id' => 3,
                 'path' => 'healthy-6.jpg',
             ],
 
         ]);
+
 
         DB::table('product_categories')->insert([
             [
@@ -231,7 +186,7 @@ class DatabaseSeeder extends Seeder
                 'study_date'=> ' 7 Days ',
                 'study_time' => 'Start on 01th Every Month',
                 'content' => '',
-                'price' => null,
+                'price' => 100,
                 'discount' => null,
                 'featured' => true,
                 'tag' => 'Yoga',
@@ -245,7 +200,7 @@ class DatabaseSeeder extends Seeder
                 'study_date'=> ' 14 Days  ',
                 'study_time' => ' Start on 15th Every Month',
                 'content' => '',
-                'price' => null,
+                'price' => 100,
                 'discount' => null,
                 'featured' => true,
                 'tag' => 'Yoga',
@@ -260,7 +215,7 @@ class DatabaseSeeder extends Seeder
                 'study_date'=> ' 30 Days  ',
                 'study_time' => ' Start on 01th Every Month',
                 'content' => '',
-                'price' => null,
+                'price' => 100,
                 'discount' => null,
                 'featured' => true,
                 'tag' => 'Yoga',
@@ -274,7 +229,7 @@ class DatabaseSeeder extends Seeder
                 'study_date'=> ' Tue, Thu, Sat ',
                 'study_time' => ' 6:30 - 7:30',
                 'content' => '',
-                'price' => null,
+                'price' => 200,
                 'discount' => null,
                 'featured' => true,
                 'tag' => 'Yoga',
@@ -288,7 +243,7 @@ class DatabaseSeeder extends Seeder
                 'study_date'=> ' Mon, Wed, Fri  ',
                 'study_time' => ' 18:30 - 19:30',
                 'content' => '',
-                'price' => null,
+                'price' => 100,
                 'discount' => null,
                 'featured' => true,
                 'tag' => 'Yoga',
@@ -302,7 +257,7 @@ class DatabaseSeeder extends Seeder
                 'study_date'=> ' Mon, Wed, Fri ',
                 'study_time' => ' 18:30 - 19:30',
                 'content' => '',
-                'price' => null,
+                'price' => 300,
                 'discount' => null,
                 'featured' => true,
                 'tag' => 'Yoga',
@@ -316,7 +271,7 @@ class DatabaseSeeder extends Seeder
                 'study_date'=> ' Mon, Wed, Fri ',
                 'study_time' => ' 18:30 - 19:30',
                 'content' => '',
-                'price' => null,
+                'price' => 100,
                 'discount' => null,
                 'featured' => true,
                 'tag' => 'Yoga',
@@ -330,7 +285,7 @@ class DatabaseSeeder extends Seeder
                 'study_date'=> ' Tue, Thu, Sat  ',
                 'study_time' => ' 17:30 - 18:30 ',
                 'content' => '',
-                'price' => null,
+                'price' => 100,
                 'discount' => null,
                 'featured' => true,
                 'tag' => 'Yoga',
@@ -344,13 +299,97 @@ class DatabaseSeeder extends Seeder
                 'study_date'=> ' Mon, Wed, Fri  ',
                 'study_time' => ' 6:30 - 7:30',
                 'content' => '',
-                'price' => null,
+                'price' => 100,
                 'discount' => null,
                 'featured' => true,
                 'tag' => 'Yoga',
             ],
 
+            [
+                'id' => 10,
+                'product_category_id' => 2,
+                'name' => 'Yoga for beginners',
+                'teacher_name' => 'Kerenza Ladonna',
+                'level'=>'Yoga for beginners',
+                'study_date'=> ' 7 Days ',
+                'study_time' => 'Start on 01th Every Month',
+                'content' => '',
+                'price' => 100,
+                'discount' => null,
+                'featured' => true,
+                'tag' => 'Yoga',
+            ],
+            [
+                'id' => 11,
+                'product_category_id' => 2,
+                'name' => 'Yoga for young people',
+                'teacher_name' => 'Edna Almira',
+                'level'=>'Yoga for Seniors',
+                'study_date'=> ' 14 Days  ',
+                'study_time' => ' Start on 15th Every Month',
+                'content' => '',
+                'price' => 200,
+                'discount' => null,
+                'featured' => true,
+                'tag' => 'Yoga',
 
+            ],
+            [
+                'id' => 12,
+                'product_category_id' => 2,
+                'name' => '30 Days of Yoga for Men',
+                'teacher_name' => 'Silas Dominic',
+                'level'=>'Yoga for beginners',
+                'study_date'=> ' 30 Days  ',
+                'study_time' => ' Start on 01th Every Month',
+                'content' => '',
+                'price' => 200,
+                'discount' => null,
+                'featured' => true,
+                'tag' => 'Yoga',
+            ],
+            [
+                'id' => 13,
+                'product_category_id' => 2,
+                'name' => 'Yoga helps kids stay active.',
+                'teacher_name' => 'Kerenza Ladonna',
+                'level'=>'Yoga for kids',
+                'study_date'=> ' Tue, Thu, Sat ',
+                'study_time' => ' 6:30 - 7:30',
+                'content' => '',
+                'price' => 300,
+                'discount' => null,
+                'featured' => true,
+                'tag' => 'Yoga',
+            ],
+            [
+                'id' => 14,
+                'product_category_id' => 2,
+                'name' => '100 Hour Yoga Course Rishikesh',
+                'teacher_name' => 'Jordan Lawson',
+                'level'=>'Yoga for beginners',
+                'study_date'=> ' Mon, Wed, Fri  ',
+                'study_time' => ' 18:30 - 19:30',
+                'content' => '',
+                'price' => 100,
+                'discount' => null,
+                'featured' => true,
+                'tag' => 'Yoga',
+            ],
+            [
+                'id' => 15,
+                'product_category_id' => 2,
+                'name' => '200 Hour Yoga Course Rishikesh',
+                'teacher_name' => 'Jordan Lawson',
+                'level'=>'Yoga for beginners',
+                'study_date'=> ' Mon, Wed, Fri ',
+                'study_time' => ' 18:30 - 19:30',
+                'content' => '',
+                'price' => 100,
+                'discount' => null,
+                'featured' => true,
+                'tag' => 'Yoga',
+            ],
         ]);
 
         DB::table('blog_comments')->insert([
@@ -363,7 +402,23 @@ class DatabaseSeeder extends Seeder
                 'rating' => 5,
             ],
             [
-                'blog_id' => 9,
+                'blog_id' => 2,
+                'user_id' => 4,
+                'email' => 'brandonkelley@gmail.com',
+                'name' => 'Brandon Kelley',
+                'messages' => 'Nice !',
+                'rating' => 4,
+            ],
+            [
+                'blog_id' => 3,
+                'user_id' => 5,
+                'email' => 'roybanks@gmail.com',
+                'name' => 'Roy Banks',
+                'messages' => 'Nice !',
+                'rating' => 4,
+            ],
+            [
+                'blog_id' => 4,
                 'user_id' => 5,
                 'email' => 'roybanks@gmail.com',
                 'name' => 'Roy Banks',
@@ -371,7 +426,7 @@ class DatabaseSeeder extends Seeder
                 'rating' => 3,
             ],
             [
-                'blog_id' => 9,
+                'blog_id' => 5,
                 'user_id' => 5,
                 'email' => 'codelean@gmail.com',
                 'name' => 'Roy Banks',
@@ -490,7 +545,7 @@ class DatabaseSeeder extends Seeder
                 'content'=>'There are many variations of passages of Lorem Ipsum available, but the majority have suffered that the alteration in some form by injected humour or the an randomised words which don’t look even evry is and slightly believable. If you are going to use a passage of Lorem Ipsum you need to be sure there isn’t is the anything aembarrassing hidden in the middle of text.Ipsum available but the that majority have that suffered is humour or randomised words.',
                 'name' => '100 Hour Yoga Course Rishikesh',
                 'title' => '',
-                'avatar' => 'classes-instructor.png',
+                'avatar' => 'classes-details/classes-instructor.png',
             ],
             [
                 'id' => 2,
@@ -545,5 +600,6 @@ This article will equip you with the knowledge of yoga at home to be able to per
             ],
 
         ]);
+
     }
 }

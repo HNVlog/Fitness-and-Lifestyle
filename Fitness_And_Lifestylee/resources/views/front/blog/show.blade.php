@@ -10,17 +10,16 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="blog__hero__text">
-                        @foreach($blog as $blogg)
-                        @endforeach
-                        <h2>{{ $blogg->title }}</h2>
+
+                        <h2>{{ $blog->title }}</h2>
                         <ul>
-                            @foreach( $blogComments as $blogComment)
-                            @endforeach
+{{--                            @foreach( $blogComments as $blogComment)--}}
+{{--                            @endforeach--}}
                             <li>By <span>{{ $blogComment->name }}</span></li>
                             <li>{{ date('M d, Y',strtotime($blogComment->created_at)) }}</li>
-                                @foreach( $blogs as $blogss)
-                                @endforeach
-                            <li>{{ count($blogss->blogComments) }}     Comments</li>
+{{--                                @foreach( $blogs as $blogss)--}}
+{{--                                @endforeach--}}
+                            <li>{{ count($blog->blogComments) }}Comments</li>
                         </ul>
                     </div>
                 </div>
@@ -43,9 +42,9 @@
                         <div class="blog__sidebar__categories">
                             <h4>Categories</h4>
                             <ul>
-                                <li onclick="getCategory('All')"><a style="cursor: pointer" >All</a></li>
+                                <li onclick="getCategory('All')"><a href="./blog" style="cursor: pointer" >All</a></li>
                                 @foreach($blogCategories as $category)
-                                    <li onclick="getCategory('{{$category->name}}')"><a style="cursor: pointer" >{{$category->name}}</a></li>
+                                    <li onclick="getCategory('{{$category->name}}')"><a style="cursor: pointer">{{$category->name}}</a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -87,7 +86,7 @@
                         </div>
                         <div class="blog__sidebar__comment">
                             <h4>Comment & Rating</h4>
-                            @foreach( $blogComments as $blogComment)
+{{--                            @foreach( $blogComment as $blogComment)--}}
                                 <div class="classes__sidebar__comment">
                                     <div class="classes__sidebar__comment__pic">
                                         <img src="front/img/user/{{ $blogComment->user->avatar }}" alt="">
@@ -106,24 +105,22 @@
                                         <h6>{{$blogComment->name}}</h6>
                                         <p>{{$blogComment->messages}}</p>
                                     </div>
-
                                 </div>
-                            @endforeach
+{{--                            @endforeach--}}
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-8 order-lg-2 order-1">
                     <div class="blog__details">
                         <div class="blog__details__large">
-                            @foreach( $blog as $blogImage)
-                            @endforeach
-                            <img src="front/img/blog/{{$blogImage->image}}" alt="">
+
+                            <img src="front/img/blog/{{$blog->image}}" alt="">
                             <span>Fuel</span>
                         </div>
                         <div class="blog__details__text">
-                            @foreach( $blog as $blogContent)
-                            @endforeach
-                            <p> {{ $blogContent->content }}</p>
+{{--                            @foreach( $blog as $blogContent)--}}
+{{--                            @endforeach--}}
+                            <p> {{ $blog->content }}</p>
                         </div>
                         <div class="blog__details__quote">
                             <p>This is my second time completing a 200 hr TTC from Zogin and I loved the experiences
@@ -141,8 +138,8 @@
                         </div>
                         <div class="blog__details__desc">
                             <h4>The Secret to improving</h4>
-                            <p>{{ $blogContent->content }}</p>
-                            <p>{{ $blogContent->content_2 }}</p>
+                            <p>{{ $blog->content }}</p>
+                            <p>{{ $blog->content_2 }}</p>
                         </div>
                         <div class="blog__details__tags__share">
                             <p><span>Tags:</span> All, Trending, Fuel, Cardio, Life Style</p>
@@ -192,19 +189,18 @@
                 <div class="col-lg-12">
                     <div class="leave__comment__text">
                         <h2>Leave A Comment</h2>
-                        <form action="#">
+                        <form action="#" method="post">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <input type="text" placeholder="Name*">
                                 </div>
                                 <div class="col-lg-6 col-md-6">
-                                    <input type="text" placeholder="Email*">
+                                    <input type="email" placeholder="Email*">
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="leave__comment__rating">
-                                        <h6 style="float: left ">Your Rating: </h6>
-                                        <br>
                                         <div class="rate">
+                                            <h4 style="float: left" >Your Rating: </h4>
                                             <input type="radio" id="star5" name="rating" value="5" />
                                             <label for="star5" title="text">5 stars</label>
                                             <input type="radio" id="star4" name="rating" value="4" />
@@ -229,5 +225,7 @@
             </div>
         </div>
     </div>
+
+    <script src="front/js/blog.js"></script>
 
 @endsection

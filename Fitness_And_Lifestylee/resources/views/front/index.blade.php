@@ -219,9 +219,9 @@
                                 <li><span class="icon_clock_alt"></span>{{ $classProduct->study_time }}</li>
                             </ul>
                             </p>
-                            <h4><a href="#">{{ $classProduct->name }}</a></h4>
+                            <h4><a href="./classes/detail?Product_Id={{$classProduct->id}}">{{ $classProduct->name }}</a></h4>
                             <h6>{{ $classProduct->teacher_name }}<span>- Yoga Teacher</span></h6>
-                            <a href="classes-details-1.html" class="class-btn">JOIN NOW</a>
+                            <a href="./classes/detail?Product_Id={{$classProduct->id}}" class="class-btn">JOIN NOW</a>
                         </div>
                     </div>
 

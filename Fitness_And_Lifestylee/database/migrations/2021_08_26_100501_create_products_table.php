@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('study_date');
             $table->string('study_time');
             $table->text('content')->nullable();
-            $table->double('price')->nullable();
+            $table->double('price');
             $table->double('discount')->nullable();
             $table->boolean('featured');
             $table->string('tag')->nullable();
