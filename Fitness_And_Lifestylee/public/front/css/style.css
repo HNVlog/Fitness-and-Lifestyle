@@ -4395,3 +4395,17 @@ ol {
 .ti-close{
     cursor: pointer;
 }
+
+.blog__recent__item h6 a {
+    font-size: 15px;
+    color: #263246;
+    -webkit-transition: all, 0.3s;
+    -moz-transition: all, 0.3s;
+    -ms-transition: all, 0.3s;
+    -o-transition: all, 0.3s;
+    transition: all, 0.3s;
+}
+
+.blog__recent__item h6 a:hover {
+    color: #5768AD;
+}

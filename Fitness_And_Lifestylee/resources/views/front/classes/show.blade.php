@@ -39,7 +39,7 @@
                                 <li><span class="icon_pin_alt"></span> {{$classDetail->address}}</li>
                                 <li><span class="icon_id"></span> {{$classDetail->teacher_name}}</li>
                             </ul>
-                            <a href="./cart/add/{{$classDetail->id}}" class="sidebar-btn">Add to cart</a>
+                            <a href="./cart/add/{{$classDetail->id}}" onclick="alert('Add success !')" class="sidebar-btn">Add to cart</a>
                         </div>
                         <div class="classes__sidebar__item">
                             <h4>About Instructor</h4>
@@ -179,7 +179,7 @@
                                     <div class="leave__comment__rating">
                                         <div class="personal-rating">
                                             <div class="rate">
-                                                <h4 style="float: left ">Your Rating </h4>
+                                                <h4 style="float: left ">Your Rating :</h4>
                                                 <input type="radio" id="star5" name="rating" value="5" />
                                                 <label for="star5" title="text">5 stars</label>
                                                 <input type="radio" id="star4" name="rating" value="4" />

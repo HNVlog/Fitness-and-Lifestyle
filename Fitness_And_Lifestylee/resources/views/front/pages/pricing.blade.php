@@ -52,7 +52,7 @@
                         <li>{{ $classProduct->teacher }}</li>
                         <li> {{ $classProduct->study_time }}</li>
                     </ul>
-                    <a href="shopping-cart.html" class="primary-btn">BUY NOW</a>
+                    <a href="./cart/add/{{$classDetail->id}}" onclick="alert('Add success !')" class="primary-btn">BUY NOW</a>
                 </div>
             </div>
             @endforeach

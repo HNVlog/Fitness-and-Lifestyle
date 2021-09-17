@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="zxx">
 
-<!-- Mirrored from preview.colorlib.com/theme/zogin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 23 Aug 2021 14:56:27 GMT -->
 <head>
     <base href="{{asset('/')}}">
 

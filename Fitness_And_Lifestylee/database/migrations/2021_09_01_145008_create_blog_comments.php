@@ -21,6 +21,7 @@ class CreateBlogComments extends Migration
             $table->string('name');
             $table->string('messages');
             $table->integer('rating')->nullable();
+            $table->string('product_id');
             $table->timestamps();
         });
     }

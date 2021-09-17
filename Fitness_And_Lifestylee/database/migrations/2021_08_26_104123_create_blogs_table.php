@@ -20,8 +20,11 @@ class CreateBlogsTable extends Migration
             $table->string('title');
             $table->string('subtitle');
             $table->string('image');
-            $table->string('content');
+            $table->string('content',(5000));
+            $table->string('content_2',(5000));
             $table->string('category');
+            $table->string('image_1');
+            $table->string('image_2');
             $table->timestamps();
         });
     }

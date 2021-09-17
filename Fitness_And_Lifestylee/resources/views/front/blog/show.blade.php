@@ -13,13 +13,13 @@
 
                         <h2>{{ $blog->title }}</h2>
                         <ul>
-{{--                            @foreach( $blogComments as $blogComment)--}}
+{{--                            @foreach( $blogComment as $blogCommentt)--}}
 {{--                            @endforeach--}}
                             <li>By <span>{{ $blogComment->name }}</span></li>
                             <li>{{ date('M d, Y',strtotime($blogComment->created_at)) }}</li>
 {{--                                @foreach( $blogs as $blogss)--}}
 {{--                                @endforeach--}}
-                            <li>{{ count($blog->blogComments) }}Comments</li>
+                            <li>{{ count($blog->blogComments) }}  Comments</li>
                         </ul>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                         <div class="blog__sidebar__tags">
                             <h4>Search By Tags</h4>
                             @foreach($blogCategories as $category)
-                                <a onclick="getCategory('{{$category->tags}}')" style="cursor: pointer">{{$category->tags}}></a>
+                                <a onclick="getCategory('{{$category->tags}}')" style="cursor: pointer">{{$category->tags}}</a>
                             @endforeach
                         </div>
                         <div class="blog__sidebar__comment">
@@ -129,10 +129,10 @@
                         <div class="blog__details__pic">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
-                                    <img src="front/img/blog/details/xbd-1.jpg.pagespeed.ic.EFgiO1yStj.jpg" alt="">
+                                    <img src="front/img/blog/{{$blog->image_1}}" alt="">
                                 </div>
                                 <div class="col-lg-6 col-md-6">
-                                    <img src="front/img/blog/details/xbd-2.jpg.pagespeed.ic.x3T5IqYSmY.jpg" alt="">
+                                    <img src="front/img/blog/{{$blog->image_2}}" alt="">
                                 </div>
                             </div>
                         </div>

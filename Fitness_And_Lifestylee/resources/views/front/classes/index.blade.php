@@ -136,7 +136,7 @@
                                 <p>{{ $classProduct->study_time }}</p>
                                 <h4><a href="#">{{ $classProduct->name }}</a></h4>
                                 <h6>{{ $classProduct->teacher_name }}<span>- Yoga Teacher</span></h6>
-                                <a href="./classes-details-1" class="class-btn">JOIN NOW</a>
+                                <a href="./classes/detail?Product_Id={{$classProduct->id}}" class="class-btn">JOIN NOW</a>
                             </div>
                         </div>
 

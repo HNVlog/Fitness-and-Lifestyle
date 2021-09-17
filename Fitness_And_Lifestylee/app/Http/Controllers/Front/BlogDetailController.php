@@ -14,7 +14,7 @@ class BlogDetailController extends Controller
 {
     public function show(Request $request){
 
-        $blog = Blog::all();
+//        $blog = Blog::all();
         $blogs = Blog::orderBy('id', 'desc')->get();
         $blogComments = BlogComment::all();
         $blogCategories = BlogCategory::all();
@@ -37,7 +37,8 @@ class BlogDetailController extends Controller
             $Product_Id = 1;
         }
 
-        $blog = $blogs[$page-1];
+        $blog = $blogs->where('blog_category_id', '=', $Product_Id)->first();
+//        $blog = $blogs[$page-1];
         $blogImage = $blogImages->where('product_id', '=', $Product_Id)->first();
 //////        $blogs = $blogs[$page-1];
         $blogComment = $blogComments->where('blog_id', '=', $Product_Id)->first();

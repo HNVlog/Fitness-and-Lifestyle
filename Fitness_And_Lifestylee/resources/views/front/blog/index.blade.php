@@ -48,38 +48,22 @@
                     </div>
                     <div class="blog__sidebar__recent">
                         <h4>Recent News</h4>
+                        @foreach($blogss as $blog)
                         <div class="blog__recent__item">
                             <div class="blog__recent__item__pic">
-                                <img src="front/img/blog/br-1.jpg" alt="">
+                                <img src="front/img/blog/{{ $blog->image }}" alt="" style="width: 70px;height: 70px">
                             </div>
                             <div class="blog__recent__item__text">
-                                <h6>09 Kinds Of Vegetables Protect The Liver</h6>
-                                <span>MAR 05, 2019</span>
+                                <h6><a href="./blog/detail?Product_Id={{$blog->blog_category_id}}">{{ $blog->title }}</a></h6>
+                                <span>  {{ date('M d, Y',strtotime($blog->created_at)) }}</span>
                             </div>
                         </div>
-                        <div class="blog__recent__item">
-                            <div class="blog__recent__item__pic">
-                                <img src="front/img/blog/br-2.jpg" alt="">
-                            </div>
-                            <div class="blog__recent__item__text">
-                                <h6>Tips You To Balance Nutrition Meal Day</h6>
-                                <span>MAR 05, 2019</span>
-                            </div>
-                        </div>
-                        <div class="blog__recent__item">
-                            <div class="blog__recent__item__pic">
-                                <img src="front/img/blog/br-3.jpg" alt="">
-                            </div>
-                            <div class="blog__recent__item__text">
-                                <h6>4 Principles Help You Lose Weight With Vegetables</h6>
-                                <span>MAR 05, 2019</span>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="blog__sidebar__tags">
                         <h4>Search By Tags</h4>
                         @foreach($blogCategories as $category)
-                            <a onclick="getCategory('{{$category->tags}}')" style="cursor: pointer">{{$category->tags}}></a>
+                            <a onclick="getCategory('{{$category->tags}}')" style="cursor: pointer">{{$category->tags}}</a>
 {{--                        <a href="#">Weight</a>--}}
 {{--                        <a href="#">Beauty</a>--}}
 {{--                        <a href="#">Yoga Ball</a>--}}
@@ -131,7 +115,7 @@
 
                                     </li>
                                 </ul>
-                                <h5><a href="blog-details.html">{{ $blog->title }}</a></h5>
+                                <h5><a href="./blog/detail?Product_Id={{$blog->blog_category_id}}">{{ $blog->title }}</a></h5>
                                 <p>{{ $blog->subtitle }} </p>
                                 <a href="./blog/detail?Product_Id={{$blog->blog_category_id}}" class="blog_read_more">READ MORE <span class="arrow_right"></span></a>
                             </div>
