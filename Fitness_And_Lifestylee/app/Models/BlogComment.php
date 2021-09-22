@@ -20,6 +20,6 @@ class BlogComment extends Model
         return $this->belongsTo(User::class,'user_id', 'id');
     }
     protected $fillable=[
-        'name','email','messages','rating',
+        'name','email','messages','rating', 'blog_id', 'product_id', 'user_id'
     ];
 }

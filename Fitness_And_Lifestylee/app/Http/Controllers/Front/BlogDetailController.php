@@ -16,7 +16,7 @@ class BlogDetailController extends Controller
 
 //        $blog = Blog::all();
         $blogs = Blog::orderBy('id', 'desc')->get();
-        $blogComments = BlogComment::all();
+        $blogComments = BlogComment::orderBy('id', 'desc')->limit(3)->get();
         $blogCategories = BlogCategory::all();
         $blogImages = ProductImage::all();
 
@@ -26,7 +26,6 @@ class BlogDetailController extends Controller
             $blogs = $blogs->where("category", '=', $category);
         }
 
-//          Nếu cần phân trang thì mới sử dụng đoạn code này
         $page = $request->input('page');
         if (is_null($page)){
             $page = 1;
@@ -38,13 +37,11 @@ class BlogDetailController extends Controller
         }
 
         $blog = $blogs->where('blog_category_id', '=', $Product_Id)->first();
-//        $blog = $blogs[$page-1];
-        $blogImage = $blogImages->where('product_id', '=', $Product_Id)->first();
-//////        $blogs = $blogs[$page-1];
-        $blogComment = $blogComments->where('blog_id', '=', $Product_Id)->first();
+        $blogImage = $blogImages->where('blog_id', '=', $Product_Id)->first();
+        $blogComment = $blogComments->where('product_id', '=', $Product_Id)->all();
 ////        $blogCategorie = $blogCategories[$page-1];
 
-        return view('front.blog.show', compact('blog','blogs','blogCategories','blogComment', 'page', 'blogImage'));
+        return view('front.blog.show', compact('blog','blogs','blogCategories','blogComments', 'page', 'blogImage'));
     }
 
     public function category($categoryName,Request $request){
@@ -54,5 +51,18 @@ class BlogDetailController extends Controller
 
         return view('front.blog.show', compact( 'products' ,'blogCategoriess'));
 
+    }
+
+    //     Post Comments
+    public function postComment(Request $request){
+        $request ->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'messages'=>'required',
+            'rating'=>'required',
+            'blog_id'=>'required',
+        ]);
+        BlogComment::create($request->all());
+        return redirect()->back();
     }
 }

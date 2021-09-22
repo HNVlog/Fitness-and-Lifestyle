@@ -18,11 +18,18 @@ Route::get('/about', [Front\AboutController::class, 'index']);
 Route::get('/classes', [Front\ClassesController::class, 'index']);
 Route::get('/blog', [Front\BlogController::class, 'index']);
 Route::get('/blog/{id}', [Front\BlogDetailController::class, 'show']);
+Route::post('/blog/{id}', [Front\BlogDetailController::class, 'postComment']);
 Route::get('/search', [Front\BlogController::class, 'index']);
 Route::post('/search', [Front\BlogController::class, 'index'])->name('search');
 Route::get('/pricing', [Front\PricingController::class, 'pricing']);
 Route::get('/faq', [Front\FaqController::class, 'faq']);
 Route::get('/contact', [Front\ContactController::class, 'contact']);
+
+Route::prefix('account')->group(function () {
+    Route::get('/',[Front\AccountController::class,'index']);
+//    Route::post('/',[Front\AccountController::class,'changePassword']);
+});
+
 Route::middleware(['auth'])->group(function (){
 });
 Route::get('/',[Front\HomeController::class,'index'])->name('home');
@@ -51,3 +58,6 @@ Route::prefix('checkout')->group(function () {
 Route::get('/{categoryName}', [Front\BlogController::class, 'category']);
 Route::get('/classes/{id}', [Front\ClassesDetailController::class, 'show']);
 Route::post('/classes/{id}', [Front\ClassesDetailController::class, 'postComment'])->name('postComment');
+
+
+

@@ -13,13 +13,13 @@
 
                         <h2>{{ $blog->title }}</h2>
                         <ul>
-{{--                            @foreach( $blogComment as $blogCommentt)--}}
-{{--                            @endforeach--}}
-                            <li>By <span>{{ $blogComment->name }}</span></li>
-                            <li>{{ date('M d, Y',strtotime($blogComment->created_at)) }}</li>
-{{--                                @foreach( $blogs as $blogss)--}}
-{{--                                @endforeach--}}
-                            <li>{{ count($blog->blogComments) }}  Comments</li>
+                            {{--                            @foreach( $blogComment as $blogCommentt)--}}
+                            {{--                            @endforeach--}}
+                            <li>By <span>{{ $blog->category }}</span></li>
+                            {{--                            <li>{{ date('M d, Y',strtotime($blogComment->created_at)) }}</li>--}}
+                            {{--                                @foreach( $blogs as $blogss)--}}
+                            {{--                                @endforeach--}}
+                            {{--                            <li>{{ count($blog->blogComments) }}  Comments</li>--}}
                         </ul>
                     </div>
                 </div>
@@ -33,12 +33,7 @@
             <div class="row">
                 <div class="col-lg-4 order-lg-1 order-2">
                     <div class="blog__sidebar">
-                        <div class="blog__sidebar__search">
-                            <form action="#">
-                                <input type="text" placeholder="Search">
-                                <button><span class="icon_search"></span></button>
-                            </form>
-                        </div>
+
                         <div class="blog__sidebar__categories">
                             <h4>Categories</h4>
                             <ul>
@@ -52,29 +47,11 @@
                             <h4>Recent News</h4>
                             <div class="blog__recent__item">
                                 <div class="blog__recent__item__pic">
-                                    <img src="front/img/blog/br-1.jpg" alt="">
+                                    <img src="front/img/blog/{{ $blog->image }}" alt="" style="width: 70px;height: 70px">
                                 </div>
                                 <div class="blog__recent__item__text">
-                                    <h6>09 Kinds Of Vegetables Protect The Liver</h6>
-                                    <span>MAR 05, 2019</span>
-                                </div>
-                            </div>
-                            <div class="blog__recent__item">
-                                <div class="blog__recent__item__pic">
-                                    <img src="front/img/blog/br-2.jpg" alt="">
-                                </div>
-                                <div class="blog__recent__item__text">
-                                    <h6>Tips You To Balance Nutrition Meal Day</h6>
-                                    <span>MAR 05, 2019</span>
-                                </div>
-                            </div>
-                            <div class="blog__recent__item">
-                                <div class="blog__recent__item__pic">
-                                    <img src="front/img/blog/br-3.jpg" alt="">
-                                </div>
-                                <div class="blog__recent__item__text">
-                                    <h6>4 Principles Help You Lose Weight With Vegetables</h6>
-                                    <span>MAR 05, 2019</span>
+                                    <h6><a href="./blog/detail?Product_Id={{$blog->blog_category_id}}">{{ $blog->title }}</a></h6>
+                                    <span>  {{ date('M d, Y',strtotime($blog->created_at)) }}</span>
                                 </div>
                             </div>
                         </div>
@@ -86,10 +63,10 @@
                         </div>
                         <div class="blog__sidebar__comment">
                             <h4>Comment & Rating</h4>
-{{--                            @foreach( $blogComment as $blogComment)--}}
+                            @foreach($blogComments as $blogComment)
                                 <div class="classes__sidebar__comment">
                                     <div class="classes__sidebar__comment__pic">
-                                        <img src="front/img/user/{{ $blogComment->user->avatar }}" alt="">
+                                        <img src="front/img/user/{{ $blogComment->user->avatar ?? 'default-avatar.jpg'}}" alt="">
                                         <div class="classes__sidebar__comment__rating">
                                             @for( $i = 1; $i <= 5; $i++)
                                                 @if($i <= $blogComment->rating)
@@ -106,7 +83,7 @@
                                         <p>{{$blogComment->messages}}</p>
                                     </div>
                                 </div>
-{{--                            @endforeach--}}
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -115,11 +92,11 @@
                         <div class="blog__details__large">
 
                             <img src="front/img/blog/{{$blog->image}}" alt="">
-                            <span>Fuel</span>
+                            <span>{{ $blog->category }}</span>
                         </div>
                         <div class="blog__details__text">
-{{--                            @foreach( $blog as $blogContent)--}}
-{{--                            @endforeach--}}
+                            {{--                            @foreach( $blog as $blogContent)--}}
+                            {{--                            @endforeach--}}
                             <p> {{ $blog->content }}</p>
                         </div>
                         <div class="blog__details__quote">
@@ -189,33 +166,41 @@
                 <div class="col-lg-12">
                     <div class="leave__comment__text">
                         <h2>Leave A Comment</h2>
-                        <form action="#" method="post">
+                        <form method="post">
+                            @csrf
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
-                                    <input type="text" placeholder="Name*">
+                                    <input name="name" type="text" placeholder="Name*">
                                 </div>
                                 <div class="col-lg-6 col-md-6">
-                                    <input type="email" placeholder="Email*">
+                                    <input name="email" type="email" placeholder="Email*">
                                 </div>
-                                <div class="col-lg-12">
+                                <div class="col-lg-12 text-center">
+                                    <textarea name="messages" placeholder="Your Comment"></textarea>
+                                </div>
+                                <input name="blog_id" value="1" hidden>
+                                <input name="user_id" value="1" hidden>
+                                <input name="product_id" value="{{$blogComment->product_id}}" hidden>
+                                <div class="col-lg-12 text-center">
                                     <div class="leave__comment__rating">
-                                        <div class="rate">
-                                            <h4 style="float: left" >Your Rating: </h4>
-                                            <input type="radio" id="star5" name="rating" value="5" />
-                                            <label for="star5" title="text">5 stars</label>
-                                            <input type="radio" id="star4" name="rating" value="4" />
-                                            <label for="star4" title="text">4 stars</label>
-                                            <input type="radio" id="star3" name="rating" value="3" />
-                                            <label for="star3" title="text">3 stars</label>
-                                            <input type="radio" id="star2" name="rating" value="2" />
-                                            <label for="star2" title="text">2 stars</label>
-                                            <input type="radio" id="star1" name="rating" value="1" />
-                                            <label for="star1" title="text">1 star</label>
+                                        <div class="personal-rating">
+                                            <div class="rate">
+                                                <h4 style="float: left ">Your Rating </h4>
+                                                <input type="radio" id="star5" name="rating" value="5" />
+                                                <label for="star5" title="text">5 stars</label>
+                                                <input type="radio" id="star4" name="rating" value="4" />
+                                                <label for="star4" title="text">4 stars</label>
+                                                <input type="radio" id="star3" name="rating" value="3" />
+                                                <label for="star3" title="text">3 stars</label>
+                                                <input type="radio" id="star2" name="rating" value="2" />
+                                                <label for="star2" title="text">2 stars</label>
+                                                <input type="radio" id="star1" name="rating" value="1" />
+                                                <label for="star1" title="text">1 star</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 text-center">
-                                    <textarea placeholder="Your Comment"></textarea>
                                     <button type="submit" class="site-btn">Submit</button>
                                 </div>
                             </div>

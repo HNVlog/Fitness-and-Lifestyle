@@ -39,7 +39,7 @@
                                 <li><span class="icon_pin_alt"></span> {{$classDetail->address}}</li>
                                 <li><span class="icon_id"></span> {{$classDetail->teacher_name}}</li>
                             </ul>
-                            <a href="./cart/add/{{$classDetail->id}}" onclick="alert('Add success !')" class="sidebar-btn">Add to cart</a>
+                            <a href="./cart/add/{{$classDetail->product_id}}" class="sidebar-btn">Add to cart</a>
                         </div>
                         <div class="classes__sidebar__item">
                             <h4>About Instructor</h4>
@@ -65,25 +65,27 @@
                         <div class="classes__sidebar__item">
                             <h4>Review & Comment</h4>
                             <div class="classes__sidebar__comment__list">
-                                <div class="classes__sidebar__comment">
-                                    <div class="classes__sidebar__comment__pic">
-                                        <img src="front/img/user/{{ $blogComment->user->avatar ?? 'default-avatar.jpg' }}" alt="">
-                                        <div class="classes__sidebar__comment__rating">
-                                            @for( $i = 1; $i <= 5; $i++)
-                                                @if($i <= $blogComment->rating)
-                                                    <i class="fa fa-star"></i>
-                                                @else
-                                                    <i class="fa fa-star-o"></i>
-                                                @endif
-                                            @endfor
+                                @foreach($blogComments as $blogComment)
+                                    <div class="classes__sidebar__comment">
+                                        <div class="classes__sidebar__comment__pic">
+                                            <img src="front/img/user/{{ $blogComment->user->avatar ?? 'default-avatar.jpg' }}" alt="">
+                                            <div class="classes__sidebar__comment__rating">
+                                                @for( $i = 1; $i <= 5; $i++)
+                                                    @if($i <= $blogComment->rating)
+                                                        <i class="fa fa-star"></i>
+                                                    @else
+                                                        <i class="fa fa-star-o"></i>
+                                                    @endif
+                                                @endfor
+                                            </div>
+                                        </div>
+                                        <div class="classes__sidebar__comment__text">
+                                            <span>{{date('M d, Y', strtotime($blogComment->created_at))}}</span>
+                                            <h6>{{$blogComment->name}}</h6>
+                                            <p>{{$blogComment->messages}}</p>
                                         </div>
                                     </div>
-                                    <div class="classes__sidebar__comment__text">
-                                        <span>{{date('M d, Y', strtotime($blogComment->created_at))}}</span>
-                                        <h6>{{$blogComment->name}}</h6>
-                                        <p>{{$blogComment->messages}}</p>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -134,17 +136,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12">
-                    <div class="classes__pagination">
-                        @if($path>1)
-                            <a style="cursor: pointer" onclick="getPath('{{$path-1}}')"><</a>
-                        @endif
-                        <a onclick="getPath('{{$path}}')" href="#">{{$path}}</a>
-                        @if(($path<4))
-                            <a style="cursor: pointer" onclick="getPath('{{$path+1}}')">></a>
-                        @endif
-                    </div>
-                </div>
+                {{--                <div class="col-lg-12">--}}
+                {{--                    <div class="classes__pagination">--}}
+                {{--                        @if($path>1)--}}
+                {{--                            <a style="cursor: pointer" onclick="getPath('{{$path-1}}')"><</a>--}}
+                {{--                        @endif--}}
+                {{--                        <a onclick="getPath('{{$path}}')" href="#">{{$path}}</a>--}}
+                {{--                        @if(($path<4))--}}
+                {{--                            <a style="cursor: pointer" onclick="getPath('{{$path+1}}')">></a>--}}
+                {{--                        @endif--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
             </div>
         </div>
 
@@ -164,22 +166,26 @@
                 <div class="col-lg-12">
                     <div class="leave__comment__text">
                         <h2>Leave A Comment</h2>
-                        <form action="" method="post" >
+                        <form method="post">
+                            @csrf
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
-                                    <input type="text" placeholder="Name*">
+                                    <input name="name" type="text" placeholder="Name*">
                                 </div>
                                 <div class="col-lg-6 col-md-6">
-                                    <input type="email" placeholder="Email*">
+                                    <input name="email" type="email" placeholder="Email*">
                                 </div>
                                 <div class="col-lg-12 text-center">
-                                    <textarea placeholder="Your Comment"></textarea>
+                                    <textarea name="messages" placeholder="Your Comment"></textarea>
                                 </div>
+                                <input name="blog_id" value="1" hidden>
+                                <input name="user_id" value="1" hidden>
+                                <input name="product_id" value="{{$classDetail->product_id}}" hidden>
                                 <div class="col-lg-12 text-center">
                                     <div class="leave__comment__rating">
                                         <div class="personal-rating">
                                             <div class="rate">
-                                                <h4 style="float: left ">Your Rating :</h4>
+                                                <h4 style="float: left ">Your Rating </h4>
                                                 <input type="radio" id="star5" name="rating" value="5" />
                                                 <label for="star5" title="text">5 stars</label>
                                                 <input type="radio" id="star4" name="rating" value="4" />
@@ -229,8 +235,7 @@
                                 <p>{{ $classProduct->study_time }}</p>
                                 <h4><a href="#">{{ $classProduct->name }}</a></h4>
                                 <h6>{{ $classProduct->teacher_name }}<span>- Yoga Teacher</span></h6>
-                                <a href="./" class="class-btn">JOIN NOW</a>
-                            </div>
+                                <a href="./classes/detail?Product_Id={{$classProduct->id}}" onclick="alert('Add success !')" class="class-btn">JOIN NOW</a>                            </div>
                         </div>
 
                     </div>

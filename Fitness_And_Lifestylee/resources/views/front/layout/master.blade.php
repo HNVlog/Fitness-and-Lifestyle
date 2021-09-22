@@ -43,7 +43,7 @@
             <li class="{{ (request()->segment(1) == '') ? 'active' : '' }}"><a href="./">Home</a></li>
             <li class="{{ (request()->segment(1) == 'about') ? 'active' : '' }}"><a href="./about">About</a></li>
             <li class="{{ (request()->segment(1) == 'classes') ? 'active' : '' }}"><a href="./classes">Classes</a></li>
-            <li><a href="#">Pages</a>
+            <li><a style="color:#fff;cursor: pointer;">Pages</a>
                 <ul class="dropdown">
                     <li class="{{ (request()->segment(1) == 'pricing') ? 'active' : '' }}"><a href="./pages">Pricing</a></li>
                     <li class="{{ (request()->segment(1) == 'faq') ? 'active' : '' }}"><a href="./faq">Faq</a></li>
@@ -91,7 +91,7 @@
                                     </div>
                                     <div class="dropdown-menu drop-menu-login">
                                         <div class="popover-signin">
-                                            <a href="./login" class="btn btn-block btn-white">Account-Information</a>
+                                            <a href="./account" class="btn btn-block btn-white">Account-Information</a>
                                             <a href="./your_course" class="btn btn-block btn-white">Your-Course</a>
                                             <a href="./cart" class="btn btn-block btn-white">Shopping-Cart</a>
                                             <a href="./logout" class="btn btn-block btn-white">Log-Out</a>
@@ -117,7 +117,7 @@
                             <li class="{{ (request()->segment(1) == '') ? 'active' : '' }}"><a href="./">Home</a></li>
                             <li class="{{ (request()->segment(1) == 'about') ? 'active' : '' }}"><a href="./about">About</a></li>
                             <li class="{{ (request()->segment(1) == 'classes') ? 'active' : '' }}"><a href="./classes">Classes</a></li>
-                            <li><a href="#">Pages</a>
+                            <li><a style="color:#fff;cursor: pointer;">Pages</a>
                                 <ul class="dropdown">
                                     <li class="{{ (request()->segment(1) == 'pricing') ? 'active' : '' }}"><a href="./pricing">Pricing</a></li>
                                     <li class="{{ (request()->segment(1) == 'faq') ? 'active' : '' }}"><a href="./faq">Faq</a></li>

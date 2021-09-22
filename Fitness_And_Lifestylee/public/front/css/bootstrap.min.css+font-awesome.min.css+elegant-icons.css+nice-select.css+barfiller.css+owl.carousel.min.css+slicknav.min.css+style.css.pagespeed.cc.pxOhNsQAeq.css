@@ -513,7 +513,8 @@ ol {
 
 .header__top__widget {
 	text-align: right;
-	padding: 28px 0 24px;
+    padding: 20px 0 18px;
+	/*padding: 28px 0 24px;*/
 }
 
 .header__top__widget ul {

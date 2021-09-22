@@ -34,7 +34,7 @@
 html,
 body {
     height: 100%;
-    font-family: "Muli", sans-serif;
+    /*font-family: "Muli", sans-serif;*/
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
 }
@@ -160,7 +160,7 @@ ol {
 }
 
 .spad {
-    padding-top: 100px;
+    /*padding-top: 100px;*/
     padding-bottom: 100px;
 }
 

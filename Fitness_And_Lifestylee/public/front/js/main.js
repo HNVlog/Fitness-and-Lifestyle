@@ -163,26 +163,33 @@
         });
     });
     /*-------------------
-            Quantity change
-        --------------------- */
+                Quantity change
+            --------------------- */
     var proQty = $('.pro-qty');
     proQty.prepend('<span class="dec qtybtn">-</span>');
     proQty.append('<span class="inc qtybtn">+</span>');
     proQty.on('click', '.qtybtn', function () {
         var $button = $(this);
         var oldValue = $button.parent().find('input').val();
-        if ($button.hasClass('inc') && oldValue ==3) {
-            var newVal = 6;
-        } else if($button.hasClass('inc') && oldValue ==6) {
-            var newVal=12;
-        }else {
-            if (oldValue == 6) {
-                var newVal = 3;
-            } else if(oldValue == 12) {
-                newVal = 6;
-            }else {
+        var newVal = parseFloat(oldValue);
+        if ($button.hasClass('inc')) {
+            // var newVal = parseFloat(oldValue) * 2;
+            console.log(newVal)
+            if (newVal==1){
                 newVal=3;
             }
+            else {
+                newVal= Math.min(12, newVal+3);
+            }
+        } else {
+            // Don't allow decrementing below zero
+            newVal = Math.max(1, newVal-3);
+            //     var newVal = parseFloat(oldValue) / 2;
+            // } else if(oldValue<=3) {
+            //     newVal = 3;
+            // }else {
+            //     newVal=12;
+            // }
         }
         $button.parent().find('input').val(newVal);
 
@@ -207,5 +214,6 @@
             }
         })
     }
+
 
 })(jQuery);

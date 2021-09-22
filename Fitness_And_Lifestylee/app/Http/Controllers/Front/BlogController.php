@@ -15,13 +15,13 @@ class BlogController extends Controller
     {
 
 //        $blogCategoriess = BlogCategory::all();
-        $blogs = Blog::orderBy('id', 'desc')->get();
+        $blogs = Blog::orderBy('id', 'asc')->get();
 
-        $blogss = Blog::orderBy('id', 'desc')->limit(3)->get();
+        $blogss = Blog::orderBy('id', 'asc')->limit(3)->get();
 //
 //        $bloggs = Blog::paginate(3);
 
-        $blogComments = BlogComment::all();
+        $blogComments = BlogComment::orderBy('id', 'desc')->limit(2)->get();
 
         $blogCategories = BlogCategory::all();
 

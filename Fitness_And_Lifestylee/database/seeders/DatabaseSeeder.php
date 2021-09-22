@@ -23,8 +23,9 @@ class DatabaseSeeder extends Seeder
                 'name' => 'CodeLean',
                 'email' => 'codelean@gmail.com',
                 'phone' => '0123456789',
+                'address'=>null,
                 'password' => Hash::make('123456'),
-                'avatar' => null,
+                'avatar' => 'default-avatar.jpg',
                 'level' => 0,
             ],
             [
@@ -32,8 +33,9 @@ class DatabaseSeeder extends Seeder
                 'name' => 'admin',
                 'email' => 'admin@gmail.com',
                 'phone' => '0223456789',
+                'address'=>null,
                 'password' => Hash::make('123456'),
-                'avatar' => null,
+                'avatar' => 'avatar-7.jpg',
                 'level' => 0,
             ],
             [
@@ -41,8 +43,9 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Shane Lynch',
                 'email' => 'shanelynch@gmail.com',
                 'phone' => '0323456789',
+                'address'=>null,
                 'password' => Hash::make('123456'),
-                'avatar' => 'avatar-0.jpg',
+                'avatar' => 'avatar-6.jpg',
                 'level' => 1,
             ],
             [
@@ -50,6 +53,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Brandon Kelley',
                 'email' => 'brandonkelley@gmail.com',
                 'phone' => '0423456789',
+                'address'=>null,
                 'password' => Hash::make('123456'),
                 'avatar' => 'avatar-1.jpg',
                 'level' => 1,
@@ -59,6 +63,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Roy Banks',
                 'email' => 'roybanks@gmail.com',
                 'phone' => '0523456789',
+                'address'=>null,
                 'password' => Hash::make('123456'),
                 'avatar' => 'avatar-2.jpg',
                 'level' => 1,
@@ -131,7 +136,7 @@ class DatabaseSeeder extends Seeder
             [
                 'id' => 5,
                 'user_id' => 3,
-                'blog_category_id' => 1,
+                'blog_category_id' => 5,
                 'title' => 'Release your stress with yoga and static stretching',
                 'subtitle' => 'Release tension in your body and mind with these simple yoga-inspired exercises.',
                 'image' => 'blog-5.jpg',
@@ -144,7 +149,7 @@ class DatabaseSeeder extends Seeder
             [
                 'id' => 6,
                 'user_id' => 3,
-                'blog_category_id' => 2,
+                'blog_category_id' => 6,
                 'title' => '20 yoga poses for beginners you can do at home',
                 'subtitle' => 'There are easy yoga poses that you can start with if you have never done yoga before.',
                 'image' => 'blog-6.jpg',
@@ -157,7 +162,7 @@ class DatabaseSeeder extends Seeder
             [
                 'id' => 7,
                 'user_id' => 3,
-                'blog_category_id' => 3,
+                'blog_category_id' => 7,
                 'title' => 'Best recovery Foods for Vegetarian athletes',
                 'subtitle' => '10+ Most Restorative and Nutritious Foods for Vegetarian Athletes',
                 'image' => 'healthy-11.jpg',
@@ -171,7 +176,7 @@ class DatabaseSeeder extends Seeder
             [
                 'id' => 8,
                 'user_id' => 3,
-                'blog_category_id' => 4,
+                'blog_category_id' => 8,
                 'title' => 'Healthy and nutritious diet for yoga practitioners',
                 'subtitle' => 'What is the best thing to eat before exercising for energy and endurance?',
                 'image' => 'healthy-2.jpg',
@@ -185,7 +190,7 @@ class DatabaseSeeder extends Seeder
             [
                 'id' => 9,
                 'user_id' => 3,
-                'blog_category_id' => 1,
+                'blog_category_id' => 9,
                 'title' => 'Weight loss menu in 7 days with only fruits - vegetables',
                 'subtitle' => 'To control your weight effectively, you can immediately apply the weight loss menu in 7 days.',
                 'image' => 'healthy-3.jpg',
@@ -440,9 +445,9 @@ class DatabaseSeeder extends Seeder
 
         DB::table('blog_comments')->insert([
             [
-                'id'=>9,
+                'id'=>1,
                 'blog_id' => 1,
-                'user_id' => 4,
+                'user_id' => 1,
                 'email' => 'brandonkelley@gmail.com',
                 'name' => 'Brandon Kelley',
                 'messages' => 'Nice !',
@@ -450,7 +455,7 @@ class DatabaseSeeder extends Seeder
                 'product_id' => 1,
             ],
             [
-                'id'=>8,
+                'id'=>2,
                 'blog_id' => 2,
                 'user_id' => 5,
                 'email' => 'roybanks@gmail.com',
@@ -460,7 +465,7 @@ class DatabaseSeeder extends Seeder
                 'product_id' => 2,
             ],
             [
-                'id'=>7,
+                'id'=>3,
                 'blog_id' => 3,
                 'user_id' => 5,
                 'email' => 'codelean@gmail.com',
@@ -470,7 +475,7 @@ class DatabaseSeeder extends Seeder
                 'product_id' => 3,
             ],
             [
-                'id'=>6,
+                'id'=>4,
                 'blog_id' => 4,
                 'user_id' => 4,
                 'email' => 'brandonkelley@gmail.com',
@@ -490,7 +495,7 @@ class DatabaseSeeder extends Seeder
                 'product_id' => 5,
             ],
             [
-                'id'=>4,
+                'id'=>6,
                 'blog_id' => 6,
                 'user_id' => 5,
                 'email' => 'codelean@gmail.com',
@@ -498,6 +503,36 @@ class DatabaseSeeder extends Seeder
                 'messages' => 'Good! I have improved a lot thanks to this lesson.',
                 'rating' => 4,
                 'product_id' => 6,
+            ],
+            [
+                'id'=>7,
+                'blog_id' => 7,
+                'user_id' => 2,
+                'email' => 'codelean@gmail.com',
+                'name' => 'Roy Banks',
+                'messages' => 'Good! I have improved a lot thanks to this lesson.',
+                'rating' => 4,
+                'product_id' => 7,
+            ],
+            [
+                'id'=>8,
+                'blog_id' => 8,
+                'user_id' => 3,
+                'email' => 'codelean@gmail.com',
+                'name' => 'Roy Banks',
+                'messages' => 'Good! I have improved a lot thanks to this lesson.',
+                'rating' => 2,
+                'product_id' => 8,
+            ],
+            [
+                'id'=>9,
+                'blog_id' => 9,
+                'user_id' => 2,
+                'email' => 'codelean@gmail.com',
+                'name' => 'Roy Banks',
+                'messages' => 'Good! I have improved a lot thanks to this lesson.',
+                'rating' => 3,
+                'product_id' => 9,
             ],
 
         ]);
