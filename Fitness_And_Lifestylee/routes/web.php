@@ -27,8 +27,8 @@ Route::get('/contact', [Front\ContactController::class, 'contact']);
 
 Route::prefix('account')->group(function () {
     Route::get('/',[Front\AccountController::class,'index']);
-//    Route::post('/',[Front\AccountController::class,'changePassword']);
 });
+Route::put('/update',[Front\AccountController::class,'update']);
 
 Route::middleware(['auth'])->group(function (){
 });

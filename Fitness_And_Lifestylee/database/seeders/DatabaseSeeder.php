@@ -549,7 +549,7 @@ class DatabaseSeeder extends Seeder
             [
                 'product_id' => 2,
                 'path' => 'yoga4.jpg',
-                'path_1' => 'yoga11 .jpg',
+                'path_1' => 'yoga11.jpg',
                 'path_2' => 'yoga12.jpg',
                 'path_3' => 'yoga13.jpg',
                 'path_4' => '',

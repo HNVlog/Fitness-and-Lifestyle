@@ -3662,7 +3662,7 @@ ol {
 }
 
 .contact-form .leave-comment p {
-    margin-bottom: 38px;
+    /*margin-bottom: 38px;*/
 }
 
 .contact-form .leave-comment .comment-form input {
@@ -3673,7 +3673,7 @@ ol {
     border: 1px solid #ebebeb;
     border-radius: 5px;
     padding-left: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
 }
 
 .contact-form .leave-comment .comment-form textarea {

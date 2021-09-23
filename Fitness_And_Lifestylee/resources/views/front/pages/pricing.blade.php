@@ -52,7 +52,12 @@
                                 <li>{{ $classProduct->teacher }}</li>
                                 <li> {{ $classProduct->study_time }}</li>
                             </ul>
-                            <a href="./cart/add/{{$classProduct->id}}" onclick="alert('Add success !')" class="primary-btn">BUY NOW</a>
+
+                            @auth()
+                                <a href="./cart/add/{{$classProduct->id}}" onclick="alert('Add success !')" class="primary-btn">BUY NOW</a>
+                            @else
+                                <a href="./login" class="primary-btn">BUY NOW</a>
+                            @endauth
                         </div>
                     </div>
                 @endforeach

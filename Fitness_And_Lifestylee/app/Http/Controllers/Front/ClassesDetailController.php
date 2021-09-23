@@ -32,7 +32,7 @@ class ClassesDetailController extends Controller
 //        $classesProducts = $classesProducts->forPage($path, 1)->all();
 
         $classesImage = $classesImages->where('product_id', '=', $Product_Id)->first();
-        $classDetail = $classDetails->where('product_id', '=', $Product_Id)->first();
+        $classDetail = $classDetails[$path-1];
         $blogComments = $blogComments->where('product_id', '=', $Product_Id)->all();
         $classesProduct = $classProducts->where('product_id', '=', $Product_Id)->first();
 

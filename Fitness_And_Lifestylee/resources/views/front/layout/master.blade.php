@@ -77,29 +77,33 @@
                             <li>WRITE US: <a href="https://preview.colorlib.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="87c8c1c1cec4c2c7c2dfc6cad7cbc2a9c4c8ca">hnvlog@gmail.com&#160;</a></li>
                             <li>OPENING TIMES: MON - SAT: 9:00 - 19:00</li>
                         </ul>
-
-                        <div class=" clearfix navbar primary-btn" id="fix_header">
-                            <ul class="nav navbar-nav navbar-right">
-                                <li>
-                                    <div class="navbar-ava dropdown-toggle" data-toggle="dropdown" id="signIn" data-original-title="" title="">
+                        @auth()
+                            <div class=" clearfix navbar primary-btn" id="fix_header">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li>
+                                        <div class="navbar-ava dropdown-toggle" data-toggle="dropdown" id="signIn" data-original-title="" title="">
                                         <span class="ava-img">
                                             <img alt="ava" class="img-responsive" src="https://static.edumall.vn/assets/edumall_v3/ava-4b17eb34b3f38c9f67ff2c647c2f9f8010cff8dbadbbd06c5e48fe1ce6b64291.svg">
                                         </span>
-                                        <div class="ava-info hidden-md hidden-sm hidden-xs">
-                                            <p>Hello</p>
+                                            <div class="ava-info hidden-md hidden-sm hidden-xs">
+                                                <p>Hello</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="dropdown-menu drop-menu-login">
-                                        <div class="popover-signin">
-                                            <a href="./account" class="btn btn-block btn-white">Account-Information</a>
-                                            <a href="./your_course" class="btn btn-block btn-white">Your-Course</a>
-                                            <a href="./cart" class="btn btn-block btn-white">Shopping-Cart</a>
-                                            <a href="./logout" class="btn btn-block btn-white">Log-Out</a>
+                                        <div class="dropdown-menu drop-menu-login">
+                                            <div class="popover-signin">
+                                                <a href="./account" class="btn btn-block btn-white">Account-Information</a>
+                                                <a href="./your_course" class="btn btn-block btn-white">Your-Course</a>
+                                                <a href="./cart" class="btn btn-block btn-white">Shopping-Cart</a>
+                                                <a href="./logout" class="btn btn-block btn-white">Log-Out</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        @else
+                            <a href="./login" class="primary-btn">JOIN US</a>
+                        @endauth
+
                     </div>
                 </div>
             </div>

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 
 class AccountController extends Controller
@@ -15,25 +17,18 @@ class AccountController extends Controller
         return view('front.account.index');
     }
 
-    public function changePassword(Request $request)
+    public function update(Request $request)
     {
         $request->validate([
-            'current_password' => 'required',
-            'password' => 'required|string|min:6|confirmed',
-            'password_confirmation' => 'required',
+            'email' => ['required', Rule::unique('users','email')->ignore(Auth::user()->id)],
+            'name' => 'required',
+            'phone' => 'required',
+            'address'=>'required',
         ]);
 
-        $user = Auth::users();
+        Auth::user()->update($request->only(['email','name','phone','address']));
 
-        if (!Hash::check($request->current_password, $user->password)) {
-            return back()->withErrors($request->errors());
-        }
-
-        $user->password = Hash::make($request->password);
-        $user->save();
-
-        return back()->with('success', 'Password successfully changed!');
+        return back()->with('success', 'Account successfully changed!');
     }
-
 
 }

@@ -12,7 +12,7 @@
                     <div class="breadcrumb__text">
                         <h2>About Us</h2>
                         <div class="breadcrumb__widget">
-                            <a href="./">Home</a>
+                            <a href="../your_course">Home</a>
                             <span>Account-Information</span>
                         </div>
                     </div>
@@ -34,21 +34,40 @@
                             </span>
                             @endif
                             <h4>Account Information</h4>
-                            <form action="#" class="comment-form">
+                            <form action="{{url('/update')}}" method="post" class="comment-form">
                                 @csrf
+                                @method('PUT')
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <input type="email" placeholder="Your email">
+                                        <input type="text" value="{{ \Illuminate\Support\Facades\Auth::user()->id }}" id="id" name="id" hidden>
                                     </div>
                                     <div class="col-lg-12">
-                                        <input type="text" placeholder="Account Name">
+                                        <label for="name">Name:</label>
+                                        <input type="text" value="{{ \Illuminate\Support\Facades\Auth::user()->name }}" id="name" name="name">
                                     </div>
                                     <div class="col-lg-12">
-                                        <input type="tel" placeholder="Your phone">
+                                        <label for="email">Email:</label>
+                                        <input type="email" value="{{ \Illuminate\Support\Facades\Auth::user()->email }}" id="email" name="email">
                                     </div>
                                     <div class="col-lg-12">
-                                        <input type="text" placeholder="Address">
+                                        <label for="phone">Phone:</label>
+                                        <input type="tel" value="{{ \Illuminate\Support\Facades\Auth::user()->phone }}" id="phone" name="phone">
                                     </div>
+                                    <div class="col-lg-12">
+                                        <label for="address">Address:</label>
+                                        <input type="text" value="{{ \Illuminate\Support\Facades\Auth::user()-> address}}" id="address" name="address">
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <input type="password" value="{{ \Illuminate\Support\Facades\Auth::user()->passworsd }}" id="password" name="password" hidden>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <label for="avatar">Avatar:</label>
+                                        <input type="file" value="{{ \Illuminate\Support\Facades\Auth::user()->avatar }}" id="avatar" name="avatar">
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <input type="text" value="{{ \Illuminate\Support\Facades\Auth::user()->level }}" id="level" name="level" hidden>
+                                    </div>
+
                                     <div class="col-lg-12">
                                         {{--                                    <textarea placeholder="Description"></textarea>--}}
                                         <button type="submit" class="site-btn">Update</button>
@@ -62,18 +81,20 @@
                     <div class="contact-form">
                         <div class="leave-comment">
                             <h4>Change Password</h4>
-                            <form action="#" method="post" class="comment-form">
+                            <form action="#" method="" class="comment-form">
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <p @error('current_password') class="error" @enderror>
+                                        <label for="email">Old Password:</label>
+                                        <p @error('current_password') class="feedback" @enderror>
                                             @error('current_password')
                                             <span>{{ $message }}</span>
                                             @enderror
                                         </p>
-                                        <input type="email" placeholder="Old Password" name="current_password">
+                                        <input type="password" placeholder="Old Password" name="current_password">
                                     </div>
                                     <div class="col-lg-12">
+                                        <label for="email">New Password:</label>
                                         <p @error('password') class="error" @enderror>
                                             @error('password')
                                             <span>{{ $message }}</span>
@@ -82,6 +103,7 @@
                                         <input type="password" placeholder="A New Password" name="password">
                                     </div>
                                     <div class="col-lg-12">
+                                        <label for="email">Confirm Password:</label>
                                         <p @error('password_confirmation') class="error" @enderror>
                                             @error('password_confirmation')
                                             <span>{{ $message }}</span>

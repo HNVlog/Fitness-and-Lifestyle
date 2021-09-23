@@ -35,11 +35,16 @@
                                 <li><span class="icon_calendar"></span>{{$classDetail->study_date}}</li>
                                 <li><span class="icon_clock_alt"></span> {{$classDetail->study_time}}</li>
                             </ul>
+
                             <ul class="classes__sidebar__item__id">
                                 <li><span class="icon_pin_alt"></span> {{$classDetail->address}}</li>
                                 <li><span class="icon_id"></span> {{$classDetail->teacher_name}}</li>
                             </ul>
-                            <a href="./cart/add/{{$classDetail->product_id}}" class="sidebar-btn">Add to cart</a>
+                            @auth()
+                                <a href="./cart/add/{{$classDetail->id}}" onclick="alert('Add success !')" class="sidebar-btn">Add to cart</a>
+                            @else
+                                <a href="./login" class="sidebar-btn">Add to cart</a>
+                            @endauth
                         </div>
                         <div class="classes__sidebar__item">
                             <h4>About Instructor</h4>
@@ -136,26 +141,8 @@
                         </div>
                     </div>
                 </div>
-                {{--                <div class="col-lg-12">--}}
-                {{--                    <div class="classes__pagination">--}}
-                {{--                        @if($path>1)--}}
-                {{--                            <a style="cursor: pointer" onclick="getPath('{{$path-1}}')"><</a>--}}
-                {{--                        @endif--}}
-                {{--                        <a onclick="getPath('{{$path}}')" href="#">{{$path}}</a>--}}
-                {{--                        @if(($path<4))--}}
-                {{--                            <a style="cursor: pointer" onclick="getPath('{{$path+1}}')">></a>--}}
-                {{--                        @endif--}}
-                {{--                    </div>--}}
-                {{--                </div>--}}
             </div>
         </div>
-
-
-        {{--            <div class="col-lg-12">--}}
-        {{--                <div class="classes__pagination">--}}
-
-        {{--                </div>--}}
-        {{--            </div>--}}
 
     </section>
 
@@ -235,7 +222,7 @@
                                 <p>{{ $classProduct->study_time }}</p>
                                 <h4><a href="#">{{ $classProduct->name }}</a></h4>
                                 <h6>{{ $classProduct->teacher_name }}<span>- Yoga Teacher</span></h6>
-                                <a href="./classes/detail?Product_Id={{$classProduct->id}}" onclick="alert('Add success !')" class="class-btn">JOIN NOW</a>                            </div>
+                                <a href="./classes/detail?Product_Id={{$classProduct->id}}" class="class-btn">JOIN NOW</a>                            </div>
                         </div>
 
                     </div>
