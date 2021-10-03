@@ -16,6 +16,8 @@
                             {{--                            @foreach( $blogComment as $blogCommentt)--}}
                             {{--                            @endforeach--}}
                             <li>By <span>{{ $blog->category }}</span></li>
+                            <li><span>  {{ date('M d, Y',strtotime($blog->created_at)) }}</span>
+                            </li>
                             {{--                            <li>{{ date('M d, Y',strtotime($blogComment->created_at)) }}</li>--}}
                             {{--                                @foreach( $blogs as $blogss)--}}
                             {{--                                @endforeach--}}
@@ -44,16 +46,19 @@
                             </ul>
                         </div>
                         <div class="blog__sidebar__recent">
-                            <h4>Recent News</h4>
-                            <div class="blog__recent__item">
-                                <div class="blog__recent__item__pic">
-                                    <img src="front/img/blog/{{ $blog->image }}" alt="" style="width: 70px;height: 70px">
+                            <h4>Top Classes</h4>
+                            @foreach($classProducts  as $classProducts )
+                                <div class="blog__recent__item">
+                                    <div class="blog__recent__item__pic" data-setbg="front/img/{{ $classProducts->productImages[0]->path }}">
+                                        <img src="front/img/{{ $classProducts->productImages[0]->path }}" alt=""  style="width: 70px;height: 70px; background-image: url('/front/img/{{ $classProducts->productImages[0]->path }}');" >
+                                    </div>
+                                    <div class="blog__recent__item__text">
+                                        <h6><a href="./classes/detail?Product_Id={{$classProducts->id}}">{{ $classProducts->name }}</a></h6>
+                                        <h6>Teacher: {{ $classProducts->teacher_name }}</h6>
+                                        <span>  {{ date('M d, Y',strtotime($classProducts->created_at)) }}</span>
+                                    </div>
                                 </div>
-                                <div class="blog__recent__item__text">
-                                    <h6><a href="./blog/detail?Product_Id={{$blog->blog_category_id}}">{{ $blog->title }}</a></h6>
-                                    <span>  {{ date('M d, Y',strtotime($blog->created_at)) }}</span>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                         <div class="blog__sidebar__tags">
                             <h4>Search By Tags</h4>
@@ -100,8 +105,7 @@
                             <p> {{ $blog->content }}</p>
                         </div>
                         <div class="blog__details__quote">
-                            <p>This is my second time completing a 200 hr TTC from Zogin and I loved the experiences
-                                even more</p>
+                            <p>{{ $blog->content_1 }}</p>
                         </div>
                         <div class="blog__details__pic">
                             <div class="row">
@@ -115,7 +119,6 @@
                         </div>
                         <div class="blog__details__desc">
                             <h4>The Secret to improving</h4>
-                            <p>{{ $blog->content }}</p>
                             <p>{{ $blog->content_2 }}</p>
                         </div>
                         <div class="blog__details__tags__share">

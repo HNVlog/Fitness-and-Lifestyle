@@ -58,11 +58,4 @@ class ClassesController extends Controller
         return view('front.classes.index', compact('classesProducts','classProducts', 'page'));
     }
 
-
-//    public function index() {
-//        $classesProducts = Product::where('featured',true)->where('product_category_id', 1)->get();
-//        $classProducts = Product::where('featured',true)->where('product_category_id',1)->limit(3)->get();
-//
-//        return view('front.classes.index', compact('classesProducts','classProducts'));
-//    }
 }

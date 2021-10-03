@@ -35,17 +35,15 @@
                                 <li><span class="icon_calendar"></span>{{$classDetail->study_date}}</li>
                                 <li><span class="icon_clock_alt"></span> {{$classDetail->study_time}}</li>
                             </ul>
-
                             <ul class="classes__sidebar__item__id">
                                 <li><span class="icon_pin_alt"></span> {{$classDetail->address}}</li>
                                 <li><span class="icon_id"></span> {{$classDetail->teacher_name}}</li>
                             </ul>
                             @auth()
-                                <a href="./cart/add/{{$classDetail->id}}" onclick="alert('Add success !')" class="sidebar-btn">Add to cart</a>
+                                <a href="./cart/add/{{$classDetail->id}}" onclick="alert('Add Success !')" class="sidebar-btn">Add to cart</a>
                             @else
                                 <a href="./login" class="sidebar-btn">Add to cart</a>
-                            @endauth
-                        </div>
+                            @endauth                        </div>
                         <div class="classes__sidebar__item">
                             <h4>About Instructor</h4>
                             <div class="classes__sidebar__instructor">
@@ -143,9 +141,7 @@
                 </div>
             </div>
         </div>
-
     </section>
-
 
     <div class="leave-comment spad">
         <div class="container">

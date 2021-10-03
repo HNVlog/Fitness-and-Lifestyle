@@ -83,7 +83,7 @@
                                     <li>
                                         <div class="navbar-ava dropdown-toggle" data-toggle="dropdown" id="signIn" data-original-title="" title="">
                                         <span class="ava-img">
-                                            <img alt="ava" class="img-responsive" src="https://static.edumall.vn/assets/edumall_v3/ava-4b17eb34b3f38c9f67ff2c647c2f9f8010cff8dbadbbd06c5e48fe1ce6b64291.svg">
+                                            <img src="/front/img/user/{{ \Illuminate\Support\Facades\Auth::user()->avatar }}" alt="" style="background-image: url('/front/img/user/{{ \Illuminate\Support\Facades\Auth::user()->avatar }}')">
                                         </span>
                                             <div class="ava-info hidden-md hidden-sm hidden-xs">
                                                 <p>Hello</p>

@@ -24,20 +24,26 @@
 
     <section class="contact-section spad">
         <section class="container">
+            @if(session()->has('success'))
+                <span class="alert alert-success">
+                    <strong>{{ session()->get('success') }}</strong>
+                </span>
+            @endif
             <div class="row">
                 <div class="col-lg-6 offset-lg-1">
                     <div class="contact-form">
                         <div class="leave-comment">
-                            @if(session()->has('success'))
-                                <span class="alert alert-success">
-                                <strong>{{ session()->get('success') }}</strong>
-                            </span>
-                            @endif
                             <h4>Account Information</h4>
-                            <form action="{{url('/update')}}" method="post" class="comment-form">
+                            <form action="{{url('/update1')}}" method="post" class="comment-form">
                                 @csrf
                                 @method('PUT')
                                 <div class="row">
+                                    <div class="col-lg-12">
+                                        <label for="avatar">Avatar: <br>
+                                            <img src="/front/img/user/{{ \Illuminate\Support\Facades\Auth::user()->avatar }}" alt="" style=" width: 100px;height: 100px;background-image: url('/front/img/user/{{ \Illuminate\Support\Facades\Auth::user()->avatar }}')">
+                                        </label>
+                                        <input type="file" value="{{ \Illuminate\Support\Facades\Auth::user()->avatar }}" id="avatar" name="avatar" style="border: #ffffff; cursor: pointer">
+                                    </div>
                                     <div class="col-lg-12">
                                         <input type="text" value="{{ \Illuminate\Support\Facades\Auth::user()->id }}" id="id" name="id" hidden>
                                     </div>
@@ -61,15 +67,9 @@
                                         <input type="password" value="{{ \Illuminate\Support\Facades\Auth::user()->passworsd }}" id="password" name="password" hidden>
                                     </div>
                                     <div class="col-lg-12">
-                                        <label for="avatar">Avatar:</label>
-                                        <input type="file" value="{{ \Illuminate\Support\Facades\Auth::user()->avatar }}" id="avatar" name="avatar">
-                                    </div>
-                                    <div class="col-lg-12">
                                         <input type="text" value="{{ \Illuminate\Support\Facades\Auth::user()->level }}" id="level" name="level" hidden>
                                     </div>
-
                                     <div class="col-lg-12">
-                                        {{--                                    <textarea placeholder="Description"></textarea>--}}
                                         <button type="submit" class="site-btn">Update</button>
                                     </div>
                                 </div>
@@ -81,8 +81,9 @@
                     <div class="contact-form">
                         <div class="leave-comment">
                             <h4>Change Password</h4>
-                            <form action="#" method="" class="comment-form">
+                            <form action="{{url('/update2')}}" method="post" class="comment-form">
                                 @csrf
+                                @method('PUT')
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <label for="email">Old Password:</label>
@@ -91,7 +92,7 @@
                                             <span>{{ $message }}</span>
                                             @enderror
                                         </p>
-                                        <input type="password" placeholder="Old Password" name="current_password">
+                                        <input type="password" placeholder="Old Password" name="current_password" value="{{ \Illuminate\Support\Facades\Auth::user()->passworsd }}">
                                     </div>
                                     <div class="col-lg-12">
                                         <label for="email">New Password:</label>

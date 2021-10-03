@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\BlogComment;
-use App\Models\BlogDetail;
+use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
 
@@ -14,7 +14,8 @@ class BlogDetailController extends Controller
 {
     public function show(Request $request){
 
-//        $blog = Blog::all();
+        $classProducts = Product::orderBy('id', 'asc')->limit(3)->get();
+//        $classesImages = ProductImage::all();
         $blogs = Blog::orderBy('id', 'desc')->get();
         $blogComments = BlogComment::orderBy('id', 'desc')->limit(3)->get();
         $blogCategories = BlogCategory::all();
@@ -31,6 +32,7 @@ class BlogDetailController extends Controller
             $page = 1;
         }
 
+
         $Product_Id = $request -> input('Product_Id');
         if (is_null($Product_Id)) {
             $Product_Id = 1;
@@ -39,9 +41,11 @@ class BlogDetailController extends Controller
         $blog = $blogs->where('blog_category_id', '=', $Product_Id)->first();
         $blogImage = $blogImages->where('blog_id', '=', $Product_Id)->first();
         $blogComment = $blogComments->where('product_id', '=', $Product_Id)->all();
-////        $blogCategorie = $blogCategories[$page-1];
+        $classProduct = $classProducts->where('product_category_id', '=', $Product_Id)->all();
 
-        return view('front.blog.show', compact('blog','blogs','blogCategories','blogComments', 'page', 'blogImage'));
+//        $blogCategorie = $blogCategories[$page-1];
+
+        return view('front.blog.show', compact('blog','blogs','blogCategories','blogComments','blogComment', 'page', 'blogImage', 'classProducts', 'classProduct'));
     }
 
     public function category($categoryName,Request $request){

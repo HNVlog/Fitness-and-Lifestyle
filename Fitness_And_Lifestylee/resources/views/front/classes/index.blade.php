@@ -49,6 +49,7 @@
                                 <p>Teacher:</p>
                                 <select class="sorting" name="teacher" onchange="this.form.submit();">
                                     <option {{ request('teacher') == 'all' ? 'selected' : '' }} value="all">All Teachers</option>
+                                    <option {{ request('teacher') == 'Tracy Maclaren' ? 'selected' : '' }} value="Tracy Maclaren">Tracy Maclaren</option>
                                     <option {{ request('teacher') == 'Kerenza Ladonna' ? 'selected' : '' }} value="Kerenza Ladonna">Kerenza Ladonna</option>
                                     <option {{ request('teacher') == 'Silas Dominic' ? 'selected' : '' }} value="Silas Dominic">Silas Dominic</option>
                                     <option {{ request('teacher') == 'Jordan Lawson' ? 'selected' : '' }} value="Jordan Lawson">Jordan Lawson</option>
@@ -103,9 +104,6 @@
                             <a style="cursor: pointer" onclick="getPage('{{$page+1}}')">></a>
                         @endif
 
-                        {{--                        <a href="classes.html">1</a>--}}
-                        {{--                        <a href="classes-2.html">2</a>--}}
-                        {{--                        <a href="classes-2.html"><span class="arrow_carrot-right"></span></a>--}}
                     </div>
                 </div>
             </div>
@@ -136,8 +134,7 @@
                                 <p>{{ $classProduct->study_time }}</p>
                                 <h4><a href="#">{{ $classProduct->name }}</a></h4>
                                 <h6>{{ $classProduct->teacher_name }}<span>- Yoga Teacher</span></h6>
-                                <a href="./classes/detail?Product_Id={{$classProduct->id}}" class="class-btn">JOIN NOW</a>
-                            </div>
+                                <a href="./classes/detail?Product_Id={{$classProduct->id}}" class="class-btn">JOIN NOW</a>                            </div>
                         </div>
 
                     </div>

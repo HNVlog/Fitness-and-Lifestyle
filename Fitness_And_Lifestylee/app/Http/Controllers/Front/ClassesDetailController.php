@@ -27,12 +27,9 @@ class ClassesDetailController extends Controller
             $path = 1;
         }
 
-//        $classDetails = $classDetails->forPage($path, 1)->all();
-//        $blogComments = $blogComments->forPage($path, 1)->all();
-//        $classesProducts = $classesProducts->forPage($path, 1)->all();
-
         $classesImage = $classesImages->where('product_id', '=', $Product_Id)->first();
-        $classDetail = $classDetails[$path-1];
+        $classDetail = $classDetails->where('product_id', '=', $Product_Id)->first();
+//        $classDetail = $classDetails[$path-1];
         $blogComments = $blogComments->where('product_id', '=', $Product_Id)->all();
         $classesProduct = $classProducts->where('product_id', '=', $Product_Id)->first();
 
@@ -50,8 +47,7 @@ class ClassesDetailController extends Controller
             'blog_id'=>'required',
         ]);
         BlogComment::create($request->all());
-//        return redirect()->route('/classes/{id}')
-//            ->with('success','thành công');
+
         return redirect()->back();
     }
 }

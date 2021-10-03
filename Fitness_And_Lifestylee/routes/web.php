@@ -1,7 +1,7 @@
 <?php
 use App\Http\Controllers\Front;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Admin;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,57 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//    Admin
+Route::prefix('ad')->group(function (){
+    Route::get('/', function () {
+        return view('admin.index');
+    })->name('admin');
+
+    Route::prefix('account')->group(function (){
+        Route::get('/',[Admin\AccountController::class,'index']);
+        Route::get('/delete/{id}',[Admin\AccountController::class,'delete']);
+    });
+    Route::prefix('blog')->group(function (){
+        Route::get('/',[Admin\BlogController::class,'index']);
+        Route::prefix('/add')->group(function(){
+            Route::get('/',[Admin\BlogController::class,'blogadd']);
+            Route::post('/',[Admin\BlogController::class,'createnew']);
+
+        });
+        Route::get('/delete/{id}',[Admin\BlogController::class,'delete']);
+        Route::get('/{id}',[Admin\BlogController::class,'details']);
+
+    });
+
+    Route::prefix('classes')->group(function (){
+        Route::get('/',[Admin\ClassesController::class,'index']);
+        Route::prefix('/add')->group(function(){
+            Route::get('/',[Admin\ClassesController::class,'classesadd']);
+            Route::post('/',[Admin\ClassesController::class,'createnew']);
+
+        });
+        Route::get('/delete/{id}',[Admin\ClassesController::class,'delete']);
+        Route::get('/{id}',[Admin\ClassesController::class,'details']);
+    });
+    Route::prefix('comment')->group(function (){
+        Route::get('/',[Admin\CommentController::class,'index']);
+        Route::get('/delete/{id}',[Admin\CommentController::class,'delete']);
+        Route::get('/{id}',[Admin\CommentController::class,'details']);
+    });
+    Route::prefix('login')->group(function (){
+        Route::get('/',[Admin\LoginController::class,'index'])->name('login');
+        Route::post('/',[Admin\LoginController::class,'postLogin']);
+    });
+    Route::prefix('register')->group(function (){
+        Route::get('/',[Admin\RegisterController::class,'index'])->name('register');
+        Route::post('/',[Admin\RegisterController::class,'postRegister']);
+    });
+    Route::get('/logout', '\App\Http\Controllers\Admin\LoginController@logout');
+});
+
+
+
+//user
 Route::get('/', [Front\HomeController::class, 'index']);
 Route::get('/about', [Front\AboutController::class, 'index']);
 Route::get('/classes', [Front\ClassesController::class, 'index']);
@@ -28,7 +79,9 @@ Route::get('/contact', [Front\ContactController::class, 'contact']);
 Route::prefix('account')->group(function () {
     Route::get('/',[Front\AccountController::class,'index']);
 });
-Route::put('/update',[Front\AccountController::class,'update']);
+
+Route::put('/update1',[Front\AccountController::class,'update1']);
+Route::put('/update2',[Front\AccountController::class,'update2']);
 
 Route::middleware(['auth'])->group(function (){
 });
