@@ -39,23 +39,19 @@
                     </tr>
                     </tfoot>
                     <tbody>
-                    @foreach($comments as $comment)
+                    @foreach($cmts as $cmt)
                         <tr>
-                            <td>{{$comment->id}}</td>
-                            <td>{{$comment->name}}</td>
-                            <td>{{$comment->email}}</td>
-                            <td>{{$comment->messages}}</td>
-                            <td>{{$comment->rating}}</td>
+                            <td>{{$cmt->id}}</td>
+                            <td>{{$cmt->name}}</td>
+                            <td>{{$cmt->email}}</td>
+                            <td>{{$cmt->messages}}</td>
+                            <td>{{$cmt->rating}}</td>
                             <td class="project-actions text-center">
-                                <a class="btn btn-danger btn-sm" href="./comment/delete/{{$comment->id}}">
-                                    <i class="fas fa-trash">
-                                    </i>
-                                    Delete
+                                <a class="btn btn-danger btn-sm" href="./comment/deletecheck/{{$cmt->id}}">
+                                    <i class="fas fa-trash"></i>Delete
                                 </a>
-                                <a class="btn btn-success btn-sm" href="#">
-                                    <i class="fas fa-check">
-                                    </i>
-                                    Save
+                                <a class="btn btn-success btn-sm" href="./comment/add/{{$cmt->id}}">
+                                    <i class="fas fa-check"></i>Save
                                 </a>
                             </td>
                             </td>

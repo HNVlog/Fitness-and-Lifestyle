@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\BlogComment;
+use App\Models\Commentcheck;
 use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
@@ -46,7 +47,7 @@ class ClassesDetailController extends Controller
             'rating'=>'required',
             'blog_id'=>'required',
         ]);
-        BlogComment::create($request->all());
+        Commentcheck::create($request->all());
 
         return redirect()->back();
     }

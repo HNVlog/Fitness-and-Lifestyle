@@ -48,8 +48,10 @@ Route::prefix('ad')->group(function (){
     Route::prefix('comment')->group(function (){
         Route::get('/',[Admin\CommentController::class,'index']);
         Route::get('/delete/{id}',[Admin\CommentController::class,'delete']);
-        Route::get('/{id}',[Admin\CommentController::class,'details']);
+        Route::get('/deletecheck/{id}',[Admin\CommentController::class,'deletecheck']);
+        Route::get('/add/{id}',[Admin\CommentController::class,'add']);
     });
+
     Route::prefix('login')->group(function (){
         Route::get('/',[Admin\LoginController::class,'index'])->name('login');
         Route::post('/',[Admin\LoginController::class,'postLogin']);

@@ -57,3 +57,7 @@ label:not(.form-check-label):not(.custom-file-label) {
     .custom-control-label::before, .custom-file-label, .custom-select {
         transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     }
+
+    .card a:hover{
+        text-decoration: none;
+    }

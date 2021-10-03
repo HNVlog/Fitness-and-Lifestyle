@@ -20,7 +20,8 @@ class LoginController extends Controller
     {
         $this->validate($request,[
             'email'=>'required|email:filter',
-            'password'=>'required'
+            'password'=>'required',
+//            'level'=>0,
         ]);
         if (Auth::attempt([
             'email' =>$request->email,
