@@ -39,7 +39,7 @@ class BlogDetailController extends Controller
             $Product_Id = 1;
         }
 
-        $blog = $blogs->where('blog_category_id', '=', $Product_Id)->first();
+        $blog = $blogs->where('id', '=', $Product_Id)->first();
         $blogImage = $blogImages->where('blog_id', '=', $Product_Id)->first();
         $blogComment = $blogComments->where('product_id', '=', $Product_Id)->all();
         $classProduct = $classProducts->where('product_category_id', '=', $Product_Id)->all();

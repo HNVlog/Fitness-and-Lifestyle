@@ -15,6 +15,8 @@ use App\Http\Controllers\Admin;
 
 //    Admin
 Route::prefix('ad')->group(function (){
+    Route::middleware(['auth'])->group(function (){
+
     Route::get('/', function () {
         return view('admin.index');
     })->name('admin');
@@ -22,6 +24,11 @@ Route::prefix('ad')->group(function (){
     Route::prefix('account')->group(function (){
         Route::get('/',[Admin\AccountController::class,'index']);
         Route::get('/delete/{id}',[Admin\AccountController::class,'delete']);
+        Route::prefix('/edit')->group(function(){
+        Route::get('/{id}',[Admin\AccountController::class,'accountid']);
+        Route::post('/{id}',[Admin\AccountController::class,'update1']);
+
+        });
     });
     Route::prefix('blog')->group(function (){
         Route::get('/',[Admin\BlogController::class,'index']);
@@ -29,6 +36,10 @@ Route::prefix('ad')->group(function (){
             Route::get('/',[Admin\BlogController::class,'blogadd']);
             Route::post('/',[Admin\BlogController::class,'createnew']);
 
+        });
+        Route::prefix('/edit')->group(function(){
+            Route::get('/{id}',[Admin\BlogController::class,'blogid']);
+            Route::post('/{id}',[Admin\BlogController::class,'blog_edit']);
         });
         Route::get('/delete/{id}',[Admin\BlogController::class,'delete']);
         Route::get('/{id}',[Admin\BlogController::class,'details']);
@@ -40,10 +51,14 @@ Route::prefix('ad')->group(function (){
         Route::prefix('/add')->group(function(){
             Route::get('/',[Admin\ClassesController::class,'classesadd']);
             Route::post('/',[Admin\ClassesController::class,'createnew']);
+        });
+        Route::get('/{id}',[Admin\ClassesController::class,'details']);
+        Route::prefix('/edit')->group(function(){
+            Route::get('/{id}',[Admin\ClassesController::class,'classesid']);
 
         });
         Route::get('/delete/{id}',[Admin\ClassesController::class,'delete']);
-        Route::get('/{id}',[Admin\ClassesController::class,'details']);
+
     });
     Route::prefix('comment')->group(function (){
         Route::get('/',[Admin\CommentController::class,'index']);
@@ -51,7 +66,7 @@ Route::prefix('ad')->group(function (){
         Route::get('/deletecheck/{id}',[Admin\CommentController::class,'deletecheck']);
         Route::get('/add/{id}',[Admin\CommentController::class,'add']);
     });
-
+    });
     Route::prefix('login')->group(function (){
         Route::get('/',[Admin\LoginController::class,'index'])->name('login');
         Route::post('/',[Admin\LoginController::class,'postLogin']);
@@ -66,6 +81,7 @@ Route::prefix('ad')->group(function (){
 
 
 //user
+
 Route::get('/', [Front\HomeController::class, 'index']);
 Route::get('/about', [Front\AboutController::class, 'index']);
 Route::get('/classes', [Front\ClassesController::class, 'index']);
@@ -78,18 +94,17 @@ Route::get('/pricing', [Front\PricingController::class, 'pricing']);
 Route::get('/faq', [Front\FaqController::class, 'faq']);
 Route::get('/contact', [Front\ContactController::class, 'contact']);
 
+
 Route::prefix('account')->group(function () {
     Route::get('/',[Front\AccountController::class,'index']);
 });
 
-Route::put('/update1',[Front\AccountController::class,'update1']);
-Route::put('/update2',[Front\AccountController::class,'update2']);
+Route::post('/update1',[Front\AccountController::class,'update1']);
+Route::post('/update2',[Front\AccountController::class,'update2']);
 
-Route::middleware(['auth'])->group(function (){
-});
 Route::get('/',[Front\HomeController::class,'index'])->name('home');
 Route::prefix('login')->group(function (){
-    Route::get('/',[Front\LoginController::class,'index'])->name('login');
+    Route::get('/',[Front\LoginController::class,'index']);
     Route::post('/',[Front\LoginController::class,'postLogin']);
 });
 Route::prefix('register')->group(function (){
@@ -97,7 +112,13 @@ Route::prefix('register')->group(function (){
     Route::post('/',[Front\RegisterController::class,'postRegister']);
 });
 Route::get('/logout', '\App\Http\Controllers\Front\LoginController@logout');
-Route::get('/your_course', [Front\YourCourseController::class, 'index']);
+//Route::get('/your_course/{id}', [Front\YourCourseController::class, 'index']);
+//Route::post('/your_course/add', [Front\YourCourseController::class, 'add']);
+Route::prefix('your_course')->group(function (){
+    Route::get('/', [Front\YourCourseController::class, 'index']);
+    Route::post('/add', [Front\YourCourseController::class, 'add']);
+});
+
 Route::get('/check_out', [Front\CheckOutController::class, 'index']);
 Route::prefix('cart')->group(function (){
     Route::get('add/{id}',[Front\CartController::class,'add']);
@@ -106,10 +127,10 @@ Route::prefix('cart')->group(function (){
     Route::get('/destroy',[Front\CartController::class,'destroy']);
     Route::get('/update',[Front\CartController::class,'update']);
 });
-Route::prefix('checkout')->group(function () {
-    Route::get('/',[Front\CheckOutController::class,'index'])->name('checkout');
-    Route::post('/',[Front\CheckOutController::class,'addOrder']);
-});
+//Route::prefix('checkout')->group(function () {
+//    Route::get('/',[Front\CheckOutController::class,'index'])->name('checkout');
+//    Route::post('/',[Front\CheckOutController::class,'addOrder']);
+//});
 Route::get('/{categoryName}', [Front\BlogController::class, 'category']);
 Route::get('/classes/{id}', [Front\ClassesDetailController::class, 'show']);
 Route::post('/classes/{id}', [Front\ClassesDetailController::class, 'postComment'])->name('postComment');

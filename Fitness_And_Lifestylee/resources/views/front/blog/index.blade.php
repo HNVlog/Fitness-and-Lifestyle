@@ -105,9 +105,9 @@
 
                                             </li>
                                         </ul>
-                                        <h5><a href="./blog/detail?Product_Id={{$blog->blog_category_id}}">{{ $blog->title }}</a></h5>
+                                        <h5><a href="./blog/detail?Product_Id={{$blog->id}}">{{ $blog->title }}</a></h5>
                                         <p>{{ $blog->subtitle }} </p>
-                                        <a href="./blog/detail?Product_Id={{$blog->blog_category_id}}" class="blog_read_more">READ MORE <span class="arrow_right"></span></a>
+                                        <a href="./blog/detail?Product_Id={{$blog->id}}" class="blog_read_more">READ MORE <span class="arrow_right"></span></a>
                                     </div>
                                 </div>
                             </div>

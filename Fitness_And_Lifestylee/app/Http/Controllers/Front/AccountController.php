@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -27,6 +28,19 @@ class AccountController extends Controller
 //            'address'=>'required',
 //            'avatar' => 'required',
         ]);
+//        $fileup = $request->avatar;
+//        $path = 'front/img/user/';
+//        $file_name = $fileup->getClientOriginalName();
+//        $fileup->move($path,$file_name);
+//
+//        $upload=User::findOrFail(Auth::user()->id);
+////        $upload->email=$request->email;
+////        $upload->name=$request->name;
+////        $upload->phone=$request->phone;
+////        $upload->address=$request->address;
+//        $upload->avatar=$file_name;
+//        $upload->save();
+
 
         Auth::user()->update($request->only(['avatar','email','name','phone','address']));
 

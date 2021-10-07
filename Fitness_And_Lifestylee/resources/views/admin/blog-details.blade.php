@@ -20,6 +20,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Title</th>
+                        <th>Content </th>
                         <th>Content 1</th>
                         <th style="min-width: 100px;">Content 2</th>
                         <th>Image 1</th>
@@ -28,23 +29,12 @@
 
                     </tr>
                     </thead>
-                    <tfoot>
-                    <tr>
-                        <th>Edit</th>
-                        <th class="project-action text-center"><a class="btn btn-info btn-sm" href="#"><i class="fas fa-pencil-alt"></i>Edit</a></th>
-                        <th class="project-action text-center"><a class="btn btn-info btn-sm" href="#"><i class="fas fa-pencil-alt"></i>Edit</a></th>
-                        <th class="project-action text-center"><a class="btn btn-info btn-sm" href="#"><i class="fas fa-pencil-alt"></i>Edit</a></th>
-                        <th class="project-action text-center"><a class="btn btn-info btn-sm" href="#"><i class="fas fa-pencil-alt"></i>Edit</a></th>
-                        <th class="project-action text-center"><a class="btn btn-info btn-sm" href="#"><i class="fas fa-pencil-alt"></i>Edit</a></th>
-                        <th class="project-action text-center"><a class="btn btn-info btn-sm" href="#"><i class="fas fa-pencil-alt"></i>Edit</a></th>
-
-                    </tr>
-                    </tfoot>
                     <tbody>
                     <tr>
-                        <td>{{$blogs->blog_category_id}}</td>
+                        <td>{{$blogs->id}}</td>
                         <td>{{$blogs->title}}</td>
                         <td>{{$blogs->content}}</td>
+                        <td>{{$blogs->content_1}}</td>
                         <td>{{$blogs->content_2}}</td>
                         <td><img src={{url('front/img/blog/'.$blogs->image_1)}}  alt="" class="img"></td>
                         <td><img src={{url('front/img/blog/'.$blogs->image_2)}}  alt="" class="img"></td>

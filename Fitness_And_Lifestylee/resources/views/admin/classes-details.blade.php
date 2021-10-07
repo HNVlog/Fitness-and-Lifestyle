@@ -21,7 +21,7 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Avatar</th>
-                        <th>Content</th>
+                        <th style="min-width: 150px;">Content</th>
                         <th>Image Main</th>
                         <th>Image 1</th>
                         <th>Image 2</th>
@@ -31,33 +31,17 @@
 
                     </tr>
                     </thead>
-                    <tfoot>
-                    <tr>
-                        <th>Edit</th>
-                        <th class="project-action text-center"><a class="btn btn-info btn-sm" href="#"><i class="fas fa-pencil-alt"></i>Edit</a></th>
-                        <th class="project-action text-center"><a class="btn btn-info btn-sm" href="#"><i class="fas fa-pencil-alt"></i>Edit</a></th>
-                        <th class="project-action text-center"><a class="btn btn-info btn-sm" href="#"><i class="fas fa-pencil-alt"></i>Edit</a></th>
-                        <th class="project-action text-center"><a class="btn btn-info btn-sm" href="#"><i class="fas fa-pencil-alt"></i>Edit</a></th>
-                        <th class="project-action text-center"><a class="btn btn-info btn-sm" href="#"><i class="fas fa-pencil-alt"></i>Edit</a></th>
-                        <th class="project-action text-center"><a class="btn btn-info btn-sm" href="#"><i class="fas fa-pencil-alt"></i>Edit</a></th>
-                        <th class="project-action text-center"><a class="btn btn-info btn-sm" href="#"><i class="fas fa-pencil-alt"></i>Edit</a></th>
-                        <th class="project-action text-center"><a class="btn btn-info btn-sm" href="#"><i class="fas fa-pencil-alt"></i>Edit</a></th>
-                        <th class="project-action text-center"><a class="btn btn-info btn-sm" href="#"><i class="fas fa-pencil-alt"></i>Edit</a></th>
-
-                    </tr>
-                    </tfoot>
                     <tbody>
                         <tr>
                             <td>{{$product->id}}</td>
                             <td>{{$product->name}}</td>
                             <td><img src={{url('front/img/'.$productes->avatar)}} alt="" class="img-avt"></td>
-                            <td>{{$productes->content}}</td>
+                            <td style="overflow: hidden;">{{$productes->content}}</td>
                             <td><img src={{url('front/img/'.$img->path)}}  alt="" class="img"></td>
                             <td><img src={{url('front/img/'.$img->path_1)}}  alt="" class="img"></td>
                             <td><img src={{url('front/img/'.$img->path_2)}}  alt="" class="img"></td>
                             <td><img src={{url('front/img/'.$img->path_3)}}  alt="" class="img"></td>
                             <td><img src={{url('front/img/'.$img->path_4)}}  alt="" class="img"></td>
-
                             <td class="project-actions text-center">
                                 <a class="btn btn-danger btn-sm" href="./classes/delete/{{$product->id}}">
                                     <i class="fas fa-trash">

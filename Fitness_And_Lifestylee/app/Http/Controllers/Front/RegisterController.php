@@ -33,8 +33,8 @@ class RegisterController extends Controller
         $user=new User();
         $user->email=$request->email;
         $user->password=bcrypt($request->password);
-//        $user->level=1;
-
+        $user->level=1;
+        $user->avatar='default-avatar.jpg';
         $user->save();
 
         return Redirect::to('/login')->withInput()->with("Sign Up Success.");

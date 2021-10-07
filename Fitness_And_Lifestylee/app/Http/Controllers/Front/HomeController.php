@@ -7,6 +7,9 @@ namespace App\Http\Controllers\Front;
 use App\Models\ClassesDetail;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\User;
+use http\Env\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController
 {
@@ -18,4 +21,6 @@ class HomeController
 
         return view('front.index', compact('classProducts', 'classDetails', 'ProductCategories', 'productCategoryImg'));
     }
+
+
 }

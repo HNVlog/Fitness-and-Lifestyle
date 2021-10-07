@@ -36,7 +36,7 @@
                             <h4>Account Information</h4>
                             <form action="{{url('/update1')}}" method="post" class="comment-form">
                                 @csrf
-                                @method('PUT')
+
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <label for="avatar">Avatar: <br>

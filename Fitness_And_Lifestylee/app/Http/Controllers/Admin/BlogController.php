@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Product;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
@@ -26,6 +28,7 @@ class BlogController extends Controller
 
         return view('admin.blog-details',compact('blogs'));
     }
+
     public function blogadd(){
         return view('admin.blog-add');
     }
@@ -46,24 +49,78 @@ class BlogController extends Controller
             return back()->withErrors($validator->errors());
         }
 
-//        $image = $request->file('image');
-//        $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
-//        $destinationPath = public_path('/front/img');
-//        $image->move($destinationPath, $input['imagename']);
+
+        $fileup = $request->image;
+        $path = 'front/img/blog/';
+        $file_name = $fileup->getClientOriginalName();
+        $fileup->move($path,$file_name);
+
+        $fileup = $request->image_1;
+        $path = 'front/img/blog/';
+        $file_name1 = $fileup->getClientOriginalName();
+        $fileup->move($path,$file_name1);
+
+        $fileup = $request->image_2;
+        $path = 'front/img/blog/';
+        $file_name2 = $fileup->getClientOriginalName();
+        $fileup->move($path,$file_name2);
+
+
         $blog=new Blog();
         $blog->user_id=3;
+//        $blog->blog_category_id=$request->blog_category_id;
         $blog->title=$request->title;
         $blog->subtitle=$request->subtitle;
         $blog->category=$request->category;
-        $blog->image=$request->image;
+        $blog->image=$file_name;
         $blog->content=$request->content;
         $blog->content_1=$request->content_1;
         $blog->content_2=$request->content_2;
-        $blog->image_1=$request->image_1;
-        $blog->image_2=$request->image_2;
+        $blog->image_1=$file_name1;
+        $blog->image_2=$file_name2;
         $blog->save();
 
         return back()->withInput()->with("Sign Up Success.");
     }
 
+
+    public function blog_edit(Request $request, $id)
+    {
+        $fileup = $request->image;
+        $path = 'front/img/blog/';
+        $file_name = $fileup->getClientOriginalName();
+        $fileup->move($path, $file_name);
+
+        $fileup = $request->image_1;
+        $path = 'front/img/blog/';
+        $file_name1 = $fileup->getClientOriginalName();
+        $fileup->move($path, $file_name1);
+
+        $fileup = $request->image_2;
+        $path = 'front/img/blog/';
+        $file_name2 = $fileup->getClientOriginalName();
+        $fileup->move($path, $file_name2);
+
+
+        $blog =Blog::findOrFail($id);
+        $blog->user_id = 3;
+//        $blog->blog_category_id=$request->blog_category_id;
+        $blog->title = $request->title;
+        $blog->subtitle = $request->subtitle;
+        $blog->category = $request->category;
+        $blog->image = $file_name;
+        $blog->content = $request->content;
+        $blog->content_1 = $request->content_1;
+        $blog->content_2 = $request->content_2;
+        $blog->image_1 = $file_name1;
+        $blog->image_2 = $file_name2;
+        $blog->save();
+
+        return back()->withInput()->with("Sign Up Success.");
+    }
+
+    public function blogid($id){
+        $blogedit = Blog::findOrFail($id);
+        return view('admin.blog-edit',compact('blogedit'));
+    }
 }

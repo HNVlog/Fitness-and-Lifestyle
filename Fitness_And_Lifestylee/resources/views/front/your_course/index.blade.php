@@ -27,33 +27,31 @@
     <div class="shopping-cart spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                @if(App\Models\Customer_couser::count()>0)
+                    <div class="col-lg-12">
                     <div class="cart-table">
                         <table>
                             <thead>
                             <tr>
                                 <th>Image</th>
-                                <th>Name</th>
-                                <th>Teacher</th>
-                                <th>Price</th>
-                                <th>Purchase date</th>
-                                <th>Status</th>
-                                <th><i class="ti-close"></i></th>
+                                <th>Class Name - Study Time <br>(Months)</th>
+                                <th>Price ($)</th>
+{{--                                <th>Teacher</th>--}}
+                                <th>Purchase Date</th>
                             </tr>
                             </thead>
                             <tbody>
-
+                            @foreach($customer_couseres as  $customer_couser)
                                 <tr>
-                                    <td class="cart-pic first-row"><img src="front/img/classes/classes-1.jpg" alt=""></td>
+                                    <td class="cart-pic first-row"><img src="front/img/{{$customer_couser->image}}" alt=""></td>
                                     <td class="cart-title first-row">
-                                        <h5><strong>Yoga for beginners</strong></h5>
-                                    </td>
-                                    <td class="total-price first-row"><strong>$60.00</strong></td>
-                                    <td class="qua-col filter-row">
-                                        <strong>1</strong>
-                                    </td>
-                                    <td class="p-price filter-row">1</td>
-                                    <td class="total-price first-row"><strong>5:00</strong></td>
+                                        <h5>{{$customer_couser->class_name}}</h5>
+                                    <td class="cart-title first-row">${{$customer_couser->price}}</td>
+{{--                                    <td class="cart-title first-row">--}}
+{{--                                        <h5>{{$customer_couser->teacher_name}}</h5>--}}
+{{--                                    </td>--}}
+                                    <td class="cart-title first-row">{{$customer_couser->created_at}} </td>
+                                    @endforeach
                                 </tr>
 
                             </tbody>
@@ -61,6 +59,11 @@
                     </div>
 
                 </div>
+                @else
+                    <div class="col-lg-12">
+                        <h4>You have not registered for any courses yet.</h4>
+                    </div>
+                @endif
             </div>
         </div>
     </div>

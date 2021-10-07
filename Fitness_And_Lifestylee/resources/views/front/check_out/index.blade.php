@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__text">
-                        <h2>About Us</h2>
+                        <h2>Check-Out</h2>
                         <div class="breadcrumb__widget">
                             <a href="./">Home</a>
                             <span>Check-Out</span>
@@ -22,45 +22,37 @@
 
     <section class="checkout-section spad">
         <div class="container">
-            <form action="" method="post" class="checkout-form">
+            <div class="checkout-form">
                 @csrf
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="checkout-content">
                             <a href="./login" class="content-btn">Click Here To Login</a>
                         </div>
-                        <h4>Biiling Details</h4>
+                        <h4>Billing Details</h4>
                         <div class="row">
-                            <div class="col-lg-6">
-                                <label for="fir">First Name <span>*</span></label>
-                                <input type="text" id="fir" name="first_name">
-                            </div>
-                            <div class="col-lg-6">
-                                <label for="last">Last Name <span>*</span></label>
-                                <input type="text" id="last" name="last_name">
-                            </div>
                             <div class="col-lg-12">
-                                <label for="cun-name">Email <span>*</span></label>
-                                <input type="email" id="cun-name" name="email">
+                                <label for="fir"> Name <span>*</span></label>
+                                <input type="text" id="fir" name="first_name" value="{{ \Illuminate\Support\Facades\Auth::user()->name }}">
                             </div>
-
+{{--                            <div class="col-lg-6">--}}
+{{--                                <label for="last">Last Name <span>*</span></label>--}}
+{{--                                <input type="text" id="last" name="last_name" value="">--}}
+{{--                            </div>--}}
+                            <div class="col-lg-12">
+                                <label for="cun-name">Email</label>
+                                <input type="email" id="cun-name" name="email" value="{{ \Illuminate\Support\Facades\Auth::user()->email }}">
+                            </div>
                             <div class="col-lg-12">
                                 <label for="phone">Phone <span>*</span></label>
-                                <input type="text" id="phone" name="phone">
+                                <input type="text" id="phone" name="phone" value="{{ \Illuminate\Support\Facades\Auth::user()->phone }}">
                             </div>
                             <div class="col-lg-12">
                                 <label for="address">Address <span>*</span></label>
-                                <input type="text" id="address" name="address">
+                                <input type="text" id="address" name="address" value="{{ \Illuminate\Support\Facades\Auth::user()->address }}">
                             </div>
-                            <div class="col-lg-12">
-                                <div class="create-item">
-                                    <label for="acc-create">
-                                        Create an account?
-                                        <input type="checkbox" id="acc-create">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
+                            <input type="hidden" name="_token" id="csrf" value="{{Session::token()}}">
+
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -74,8 +66,10 @@
                                     <li>Product <span>Total</span></li>
 
                                     @foreach($carts as $cart)
+                                        <p hidden class="product-image">{{$cart->options->images[0]->path}}</p>
+                                        <p hidden class='product-name'>{{$cart->name}}  -  {{$cart->qty}} Months</p>
                                         <li class="fw-normal">{{$cart->name}}  -  {{$cart->qty}} Months
-                                            <span>${{$cart->price * $cart->qty}}</span></li>
+                                            <span class="product-qty">${{$cart->price * $cart->qty}}</span></li>
                                     @endforeach
 
                                     <li class="fw-normal">Subtotal <span>${{$subtotal}}</span></li>
@@ -83,14 +77,81 @@
                                 </ul>
 
                                 <div class="order-btn">
-                                    <button type="submit" class="site-btn place-btn">Place Order</button>
+                                    <button class="site-btn place-btn" onclick="CheckOut()">
+                                        Place Order
+                                    </button>
                                 </div>
                             </div>
                         </div>
+                        <script>
+                            function CheckOut(){
+                                // get product names
+                                var productNames = []
+                                for(let i = 0; i< $(".product-name").length;i++){
+                                    productNames.push($(".product-name")[i].textContent);
+                                }
+
+                                // get prices
+                                var prices = []
+                                for(let i = 0; i< $(".product-qty").length;i++){
+                                    let price = parseFloat($(".product-qty")[i].textContent.replace("$", ""));
+                                    prices.push(price);
+                                }
+
+                                // get images
+                                var images = []
+                                for (let i = 0; i< $(".product-image").length;i++){
+                                    images.push($(".product-image")[i].innerHTML);
+                                }
+
+                                // get TeacherNames
+                                // var TeacherNames = []
+                                // for(let i = 0; i< $(".icon_id").length;i++){
+                                //     productNames.push($(".icon_id")[i].textContent);
+                                // }
+                                // 'classes/classes-details/detail1.jpg'
+
+                                var add = new Date();
+                                for (let index = 0; index < productNames.length ; index++) {
+                                    var body={
+                                        {{--user_id:"{{ \Illuminate\Support\Facades\Auth::user()->id }}",--}}
+                                        user_id:2,
+                                        image: images[index],
+                                        class_name: productNames[index],
+                                        // teacher_name:'vcd',
+                                        price: prices[index],
+                                        _token: $("#csrf").val(),
+                                        // first_name: 'Nguyen',
+                                        // last_name: 'tam',
+                                        // email: 'tam@gmail.com',
+                                        // phone: '12345',
+                                        // address: 'ha noi',
+                                        // order_id: 1,
+                                        // price: 100.00,
+                                    };
+                                    $.ajax({
+                                        type:"POST",
+                                        url:"/your_course/add",
+                                        data:body,
+                                        success:function (response){
+                                            // alert('Update successful!');
+                                            console.log(response);
+                                            // location.reload();
+                                        },
+                                        error:function (error){
+                                            alert('Update failed.')
+                                            console.log(error);
+                                        }
+                                    })
+                                }
+                                location.href = location.origin + "/your_course";
+                            }
+                        </script>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </section>
+
 
 @endsection

@@ -52,7 +52,7 @@
                             <td>{{$account->password}}</td>
                             <td style="max-width: 88px"><img src={{url('front/img/user/'.$account->avatar)}}  alt="" class="img-avt"></td>
                             <td class="project-actions text-center">
-                                <a class="btn btn-info btn-sm" href="#">
+                                <a class="btn btn-info btn-sm" href="./account/edit/{{$account->id}}">
                                     <i class="fas fa-pencil-alt"></i>Edit
                                 </a>
                                 <a class="btn btn-danger btn-sm" href="/account/delete/{{$account->id}}"><i class="fas fa-trash"></i>Delete
