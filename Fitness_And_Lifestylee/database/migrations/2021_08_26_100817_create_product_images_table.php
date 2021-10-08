@@ -15,12 +15,12 @@ class CreateProductImagesTable extends Migration
     {
         Schema::create('product_images', function (Blueprint $table) {
             $table->id();
-            $table->integer('product_id')->unsigned();
+            $table->integer('product_id')->nullable();
             $table->string('path');
-            $table->string('path_1');
-            $table->string('path_2');
-            $table->string('path_3');
-            $table->string('path_4');
+            $table->string('path_1')->nullable();
+            $table->string('path_2')->nullable();
+            $table->string('path_3')->nullable();
+            $table->string('path_4')->nullable();
             $table->timestamps();
         });
     }

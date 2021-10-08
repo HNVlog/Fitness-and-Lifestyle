@@ -17,9 +17,8 @@
 
         <!-- Main content -->
         <section class="content">
-            <form action="{{url('/updateaccount1')}}" method="post" enctype="multipart/form-data">
+            <form action="" method="post" enctype="multipart/form-data">
                 @csrf
-                @method('PUT')
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card card-primary">
@@ -133,15 +132,6 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputCate">Content</label>
-                                    <p @error('content') class="error" @enderror>
-                                        @error('content')
-                                        <span>{{ $message }}</span>
-                                        @enderror
-                                    </p>
-                                    <input type="text" value="{{ $productes->content }}" id="inputCate" class="form-control"  name="content">
-                                </div>
-                                <div class="form-group">
                                     <label for="exampleInputFile">Image Main</label>
                                     <p @error('path') class="error" @enderror>
                                         @error('path')
@@ -158,67 +148,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="inputCate">Image 1</label>
-                                    <p @error('path_1') class="error" @enderror>
-                                        @error('path_1')
+                                    <label for="ckeditor">Content</label>
+                                    <p @error('content') class="error" @enderror>
+                                        @error('content')
                                         <span>{{ $message }}</span>
                                         @enderror
                                     </p>
-
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input value="{{ $img->path_1 }}" type="file" class="custom-file-input" id="exampleInputFile" accept=".jpg, .png" name="path_1">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="inputCate">Image 2</label>
-                                    <p @error('path_2') class="error" @enderror>
-                                        @error('path_2')
-                                        <span>{{ $message }}</span>
-                                        @enderror
-                                    </p>
-
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input value="{{ $img->path_2 }}" type="file" class="custom-file-input" id="exampleInputFile" accept=".jpg, .png" name="path_2">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="inputCate">Image 3</label>
-                                    <p @error('path_3') class="error" @enderror>
-                                        @error('path_3')
-                                        <span>{{ $message }}</span>
-                                        @enderror
-                                    </p>
-
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input value="{{ $img->path_3 }}" type="file" class="custom-file-input" id="exampleInputFile" accept=".jpg, .png" name="path_3">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="inputCate">Image 4</label>
-                                    <p @error('path_4') class="error" @enderror>
-                                        @error('path_4')
-                                        <span>{{ $message }}</span>
-                                        @enderror
-                                    </p>
-
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input value="{{ $img->path_4 }}" type="file" class="custom-file-input" id="exampleInputFile" accept=".jpg, .png" name="path_4">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
+                                    <textarea id="ckeditor" class="form-control" rows="3" name="content">{!! $productes->content !!}</textarea>
                                 </div>
 
                             </div>

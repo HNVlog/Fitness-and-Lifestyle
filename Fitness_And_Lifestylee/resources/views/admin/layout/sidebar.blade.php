@@ -39,6 +39,7 @@
                 <a class="collapse-item" href="/ad/classes">Classes</a>
                 <a class="collapse-item" href="/ad/blog">Blog</a>
                 <a class="collapse-item" href="/ad/comment">Comment</a>
+                <a class="collapse-item" href="/ad/order">Order</a>
             </div>
         </div>
     </li>

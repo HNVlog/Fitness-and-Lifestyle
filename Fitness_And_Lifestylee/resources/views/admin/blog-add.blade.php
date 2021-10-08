@@ -84,55 +84,13 @@
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="inputDescription">Content</label>
+                                    <label for="ckeditor">Content</label>
                                     <p @error('content') class="error" @enderror>
                                         @error('content')
                                         <span>{{ $message }}</span>
                                         @enderror
                                     </p>
-                                    <textarea id="inputDescription" class="form-control" rows="3" name="content"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputDescription">Content 1</label>
-                                    <p @error('content_1') class="error" @enderror>
-                                        @error('content_1')
-                                        <span>{{ $message }}</span>
-                                        @enderror
-                                    </p>
-                                    <textarea id="inputDescription" class="form-control" rows="3" name="content_1"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputDescription">Content 2</label>
-                                    <p @error('content_2') class="error" @enderror>
-                                        @error('content_2')
-                                        <span>{{ $message }}</span>
-                                        @enderror
-                                    </p>
-                                    <textarea id="inputDescription" class="form-control" rows="3" name="content_2"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputFile">Image 1</label>
-                                    <p @error('image_1') class="error" @enderror>
-                                        @error('image_1')
-                                        <span>{{ $message }}</span>
-                                        @enderror
-                                    </p>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="exampleInputFile" {{--accept=".jpg, .png"--}} name="image_1">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputFile">Image 2</label>
-                                    <p @error('image_2') class="error" @enderror>
-                                        @error('image_2')
-                                        <span>{{ $message }}</span>
-                                        @enderror
-                                    </p>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="exampleInputFile" accept=".jpg, .png" name="image_2">
-                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                    </div>
+                                    <textarea id="ckeditor" class="form-control" rows="3" name="content"></textarea>
                                 </div>
 
                             </div>

@@ -15,10 +15,12 @@ class CreateCustomerCouserTable extends Migration
     {
         Schema::create('customer_couser', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned();;
+            $table->integer('user_id')->unsigned();
+            $table->string('email');
             $table->string('image');
             $table->string('class_name');
             $table->string('price');
+            $table->string('level');
             $table->timestamps();
         });
     }

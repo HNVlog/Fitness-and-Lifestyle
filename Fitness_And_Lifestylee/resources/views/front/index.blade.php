@@ -97,42 +97,7 @@
                             </div>
                         </div>
                     @endforeach
-                    {{--                <div class="col-xl-2 col-md-4 col-sm-6">--}}
-                    {{--                    <div class="services__item">--}}
-                    {{--                        <img src="front/img/services/xservices-2.png.pagespeed.ic.VieFEMfKfV.png" alt="">--}}
-                    {{--                        <h5>Meditation</h5>--}}
-                    {{--                        <p>Meditation as your go-to resource for simple tips and guided practices to quiet your mind.</p>--}}
-                    {{--                    </div>--}}
-                    {{--                </div>--}}
-                    {{--                <div class="col-xl-2 col-md-4 col-sm-6">--}}
-                    {{--                    <div class="services__item">--}}
-                    {{--                        <img src="front/img/services/xservices-3.png.pagespeed.ic.HgY656XOHT.png" alt="">--}}
-                    {{--                        <h5>Mudra</h5>--}}
-                    {{--                        <p> A Mudra is a hand gesture that guides the energy flow to specific areas of the brain.--}}
-                    {{--                        </p>--}}
-                    {{--                    </div>--}}
-                    {{--                </div>--}}
-                    {{--                <div class="col-xl-2 col-md-4 col-sm-6">--}}
-                    {{--                    <div class="services__item">--}}
-                    {{--                        <img src="front/img/services/xservices-4.png.pagespeed.ic.-HyP4ZLG0q.png" alt="">--}}
-                    {{--                        <h5>Bandhas</h5>--}}
-                    {{--                        <p>Bandhas are strengthened, renewed and rejuvenated and circulation is improved.</p>--}}
-                    {{--                    </div>--}}
-                    {{--                </div>--}}
-                    {{--                <div class="col-xl-2 col-md-4 col-sm-6">--}}
-                    {{--                    <div class="services__item">--}}
-                    {{--                        <img src="front/img/services/xservices-5.png.pagespeed.ic.vBjuD8LQ65.png" alt="">--}}
-                    {{--                        <h5>Philosophy</h5>--}}
-                    {{--                        <p>Philosophy is theoretical knowledge with the systematic techniques & personal experiment.</p>--}}
-                    {{--                    </div>--}}
-                    {{--                </div>--}}
-                    {{--                <div class="col-xl-2 col-md-4 col-sm-6">--}}
-                    {{--                    <div class="services__item">--}}
-                    {{--                        <img src="front/img/services/xservices-6.png.pagespeed.ic.XgZ433xRqq.png" alt="">--}}
-                    {{--                        <h5>Pranayama</h5>--}}
-                    {{--                        <p> Regular and sustained practice of Pranayama can supercharge your whole body!</p>--}}
-                    {{--                    </div>--}}
-                    {{--                </div>--}}
+
                 </div>
             </div>
         </div>
@@ -211,7 +176,7 @@
                 @foreach($classProducts as $classProduct)
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="classes__item">
-                            <div class="classes__item__pic set-bg" data-setbg="front/img/{{ $classProduct->productImages[0]->path }}">
+                            <div class="classes__item__pic set-bg" data-setbg="front/img/classes/classes-details/{{ $classProduct->productImages[0]->path }}">
                                 <span>{{ date('M d, Y', strtotime($classProduct->created_at)) }}</span>
                             </div>
                             <div class="classes__item__text">
@@ -223,7 +188,8 @@
                                 </p>
                                 <h4><a href="#">{{ $classProduct->name }}</a></h4>
                                 <h6>{{ $classProduct->teacher_name }}<span>- Yoga Teacher</span></h6>
-                                <a href="./classes/detail?Product_Id={{$classProduct->id}}" class="class-btn">JOIN NOW</a>                        </div>
+                                <a href="./classes/detail?Product_Id={{$classProduct->id}}" class="class-btn">JOIN NOW</a>
+                            </div>
                         </div>
                     </div>
                 @endforeach

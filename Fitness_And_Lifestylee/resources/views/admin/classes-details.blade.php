@@ -21,12 +21,8 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Avatar</th>
-                        <th style="min-width: 150px;">Content</th>
+                        <th style="min-width: 350px;">Content</th>
                         <th>Image Main</th>
-                        <th>Image 1</th>
-                        <th>Image 2</th>
-                        <th>Image 3</th>
-                        <th>Image 4</th>
                         <th class="text-center">Action</th>
 
                     </tr>
@@ -35,13 +31,9 @@
                         <tr>
                             <td>{{$product->id}}</td>
                             <td>{{$product->name}}</td>
-                            <td><img src={{url('front/img/'.$productes->avatar)}} alt="" class="img-avt"></td>
-                            <td style="overflow: hidden;">{{$productes->content}}</td>
-                            <td><img src={{url('front/img/'.$img->path)}}  alt="" class="img"></td>
-                            <td><img src={{url('front/img/'.$img->path_1)}}  alt="" class="img"></td>
-                            <td><img src={{url('front/img/'.$img->path_2)}}  alt="" class="img"></td>
-                            <td><img src={{url('front/img/'.$img->path_3)}}  alt="" class="img"></td>
-                            <td><img src={{url('front/img/'.$img->path_4)}}  alt="" class="img"></td>
+                            <td><img src={{url('front/img/user/'.$productes->avatar)}} alt="" class="img-avt"></td>
+                            <td style="overflow: hidden;">{!! $productes->content !!}</td>
+                            <td><img src={{url('front/img/classes/classes-details/'.$img->path)}}  alt="" class="img"></td>
                             <td class="project-actions text-center">
                                 <a class="btn btn-danger btn-sm" href="./classes/delete/{{$product->id}}">
                                     <i class="fas fa-trash">

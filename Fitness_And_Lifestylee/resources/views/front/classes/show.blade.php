@@ -48,7 +48,7 @@
                             <h4>About Instructor</h4>
                             <div class="classes__sidebar__instructor">
                                 <div class="classes__sidebar__instructor__pic">
-                                    <img src="front/img/{{ $classDetail->avatar }}" alt="">
+                                    <img src="front/img/classes/ClassesTeacherName/{{ $classDetail->avatar }}" alt="">
                                 </div>
                                 <div class="classes__sidebar__instructor__text">
                                     <div class="classes__sidebar__instructor__title">
@@ -97,7 +97,7 @@
                     <div class="classes__details">
                         <div class="classes__details__large">
 
-                            <img src="front/img/{{$classesImage->path }}" alt="">
+                            <img src="front/img/classes/classes-details/{{$classesImage->path }}" alt="">
                             <span>Beginer</span>
                         </div>
                         <ul class="classes__details__widget">
@@ -105,22 +105,22 @@
                             <li><span class="icon_clock_alt"></span> {{$classDetail->study_time}}</li>
                         </ul>
                         <h2>{{$classDetail->name}}</h2>
-                        <p>{{$classDetail->content}}</p>
+                        <p>{!! $classDetail->content !!}</p>
                         <div class="classes__details__item">
                             <div class="row">
                                 <div class="col-lg-4 col-md-4">
-                                    <img src="front/img/{{ $classesImage->path_1 }}" alt="">
+                                    <img src="front/img/classes/classes-details/{{ $classesImage->path_1 }}" alt="">
                                 </div>
                                 <div class="col-lg-8 col-md-8">
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6">
-                                            <img src="front/img/{{ $classesImage->path_2 }}" alt="">
+                                            <img src="front/img/classes/classes-details/{{ $classesImage->path_2 }}" alt="">
                                         </div>
                                         <div class="col-lg-6 col-md-6">
-                                            <img src="front/img/{{ $classesImage->path_3 }}" alt="">
+                                            <img src="front/img/classes/classes-details/{{ $classesImage->path_3 }}" alt="">
                                         </div>
                                     </div>
-                                    <img src="front/img/{{ $classesImage->path_4 }}" alt="">
+                                    <img src="front/img/classes/classes-details/{{ $classesImage->path_4 }}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -211,7 +211,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
 
                         <div class="classes__item">
-                            <div class="classes__item__pic set-bg" data-setbg="front/img/{{ $classProduct->productImages[0]->path }}">
+                            <div class="classes__item__pic set-bg" data-setbg="front/img/classes/classes-details/{{ $classProduct->productImages[0]->path }}">
                                 <span>{{ date('M d, Y', strtotime($classProduct->created_at)) }}</span>
                             </div>
                             <div class="classes__item__text">

@@ -36,20 +36,17 @@
                                 <th>Image</th>
                                 <th>Class Name - Study Time <br>(Months)</th>
                                 <th>Price ($)</th>
-{{--                                <th>Teacher</th>--}}
+
                                 <th>Purchase Date</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($customer_couseres as  $customer_couser)
                                 <tr>
-                                    <td class="cart-pic first-row"><img src="front/img/{{$customer_couser->image}}" alt=""></td>
+                                    <td class="cart-pic first-row"><img src="front/img/classes/classes-details/{{$customer_couser->image}}" alt=""></td>
                                     <td class="cart-title first-row">
                                         <h5>{{$customer_couser->class_name}}</h5>
                                     <td class="cart-title first-row">${{$customer_couser->price}}</td>
-{{--                                    <td class="cart-title first-row">--}}
-{{--                                        <h5>{{$customer_couser->teacher_name}}</h5>--}}
-{{--                                    </td>--}}
                                     <td class="cart-title first-row">{{$customer_couser->created_at}} </td>
                                     @endforeach
                                 </tr>

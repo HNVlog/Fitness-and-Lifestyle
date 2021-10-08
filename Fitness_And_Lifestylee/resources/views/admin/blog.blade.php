@@ -25,6 +25,7 @@
                         <th>Title</th>
                         <th>SubTitle</th>
                         <th>Category</th>
+                        <th>Content</th>
                         <th>Image</th>
                         <th class="text-center">Action</th>
 
@@ -36,6 +37,7 @@
                         <th>Title</th>
                         <th>SubTitle</th>
                         <th>Category</th>
+                        <th>Content</th>
                         <th>Image</th>
                         <th class="text-center">Action</th>
 
@@ -48,14 +50,9 @@
                             <td>{{$blog->title}}</td>
                             <td>{{$blog->subtitle}}</td>
                             <td>{{$blog->category}}</td>
+                            <td>{!!  $blog->content !!}</td>
                             <td style="max-width: 300px"><img src={{url('front/img/blog/'.$blog->image)}}  alt="" class="img-blog"></td>
-
                             <td class="project-actions text-center" style="min-width: 250px">
-                                <a class="btn btn-primary btn-sm" href="./blog/{{$blog->id}}">
-                                    <i class="fas fa-folder">
-                                    </i>
-                                    View
-                                </a>
                                 <a class="btn btn-info btn-sm" href="./blog/edit/{{$blog->id}}">
                                     <i class="fas fa-pencil-alt">
                                     </i>

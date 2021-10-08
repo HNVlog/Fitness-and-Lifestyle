@@ -33,4 +33,8 @@ class Product extends Model
     public function orderDetails(){
         return $this->hasMany(OrderDetail::class, 'product_id', 'id');
     }
+
+    protected $fillable=[
+        'name','email','messages','rating', 'blog_id', 'product_id', 'user_id'
+    ];
 }

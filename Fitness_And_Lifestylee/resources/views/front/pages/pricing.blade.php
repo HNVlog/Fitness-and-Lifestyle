@@ -42,7 +42,7 @@
                             </div>
                             <h4>{{ $classProduct->name }}</h4>
                             <div class="pricing__item__price">
-                                <img src="front/img/{{ $classProduct->productImages[0]->path }}" width="370" height="241" alt="">
+                                <img src="front/img/classes/classes-details/{{ $classProduct->productImages[0]->path }}" width="370" height="241" alt="">
                             </div>
                             <ul>
                                 <li><h2>${{ $classProduct->price }}</h2></li>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="zxx" dir="ltr">
 
 <head>
     <base href="{{asset('/')}}">
@@ -92,7 +92,7 @@
                                         <div class="dropdown-menu drop-menu-login">
                                             <div class="popover-signin">
                                                 <a href="./account" class="btn btn-block btn-white">Account-Information</a>
-                                                <a href="./your_course" class="btn btn-block btn-white">Your-Course</a>
+                                                <a href="./your_course/{{ \Illuminate\Support\Facades\Auth::user()->id }}" class="btn btn-block btn-white">Your-Course</a>
                                                 <a href="./cart" class="btn btn-block btn-white">Shopping-Cart</a>
                                                 <a href="./logout" class="btn btn-block btn-white">Log-Out</a>
                                             </div>

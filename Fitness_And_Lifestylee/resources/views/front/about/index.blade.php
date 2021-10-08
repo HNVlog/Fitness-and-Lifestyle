@@ -204,7 +204,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6">
 
                     <div class="classes__item">
-                        <div class="classes__item__pic set-bg" data-setbg="front/img/{{ $classProduct->productImages[0]->path }}">
+                        <div class="classes__item__pic set-bg" data-setbg="front/img/classes/classes-details/{{ $classProduct->productImages[0]->path }}">
                             <span>{{ date('M d, Y', strtotime($classProduct->created_at)) }}</span>
                         </div>
                         <div class="classes__item__text">

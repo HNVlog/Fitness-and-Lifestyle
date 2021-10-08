@@ -35,10 +35,6 @@
                                 <label for="fir"> Name <span>*</span></label>
                                 <input type="text" id="fir" name="first_name" value="{{ \Illuminate\Support\Facades\Auth::user()->name }}">
                             </div>
-{{--                            <div class="col-lg-6">--}}
-{{--                                <label for="last">Last Name <span>*</span></label>--}}
-{{--                                <input type="text" id="last" name="last_name" value="">--}}
-{{--                            </div>--}}
                             <div class="col-lg-12">
                                 <label for="cun-name">Email</label>
                                 <input type="email" id="cun-name" name="email" value="{{ \Illuminate\Support\Facades\Auth::user()->email }}">
@@ -116,7 +112,9 @@
                                     var body={
                                         {{--user_id:"{{ \Illuminate\Support\Facades\Auth::user()->id }}",--}}
                                         user_id:2,
+                                        // name:,
                                         image: images[index],
+                                        // level:0,
                                         class_name: productNames[index],
                                         // teacher_name:'vcd',
                                         price: prices[index],
@@ -131,10 +129,10 @@
                                     };
                                     $.ajax({
                                         type:"POST",
-                                        url:"/your_course/add",
+                                        url:"/your_course/add/{{ \Illuminate\Support\Facades\Auth::user()->id }}",
                                         data:body,
                                         success:function (response){
-                                            // alert('Update successful!');
+                                            alert('Update successful!!!');
                                             console.log(response);
                                             // location.reload();
                                         },
@@ -144,7 +142,8 @@
                                         }
                                     })
                                 }
-                                location.href = location.origin + "/your_course";
+                                location.href = location.origin + "/check_out";
+
                             }
                         </script>
                     </div>

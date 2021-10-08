@@ -19,6 +19,7 @@ class HomeController
         $ProductCategories = ProductCategory::limit(6)->get();
         $productCategoryImg = ProductCategory::all();
 
+
         return view('front.index', compact('classProducts', 'classDetails', 'ProductCategories', 'productCategoryImg'));
     }
 

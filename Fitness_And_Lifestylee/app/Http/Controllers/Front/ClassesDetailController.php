@@ -28,11 +28,11 @@ class ClassesDetailController extends Controller
             $path = 1;
         }
 
-        $classesImage = $classesImages->where('product_id', '=', $Product_Id)->first();
-        $classDetail = $classDetails->where('product_id', '=', $Product_Id)->first();
+        $classesImage = $classesImages->where('id', '=', $Product_Id)->first();
+        $classDetail = $classDetails->where('id', '=', $Product_Id)->first();
 //        $classDetail = $classDetails[$path-1];
-        $blogComments = $blogComments->where('product_id', '=', $Product_Id)->all();
-        $classesProduct = $classProducts->where('product_id', '=', $Product_Id)->first();
+        $blogComments = $blogComments->where('id', '=', $Product_Id)->all();
+        $classesProduct = $classProducts->where('id', '=', $Product_Id)->first();
 
 
         return view('front.classes.show',compact('classDetail','blogComments','classProducts','classesProduct', 'path', 'classesImage'));

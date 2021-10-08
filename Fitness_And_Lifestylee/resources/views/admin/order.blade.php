@@ -1,9 +1,9 @@
 @EXTENDS('admin.main')
-@section('title','Comment')
+@section('title','Order')
 @section('content')
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Comment</h1>
+    <h1 class="h3 mb-2 text-gray-800">Order List</h1>
     {{--    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.--}}
     {{--        For more information about DataTables, please visit the--}}
     {{--        <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>--}}
@@ -19,10 +19,11 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
                         <th>Email</th>
-                        <th>Messages</th>
-                        <th>Rating</th>
+                        <th>Class Name</th>
+                        <th>Price</th>
+                        <th>Image</th>
+                        <th>Create at</th>
                         <th class="text-center">Action</th>
 
                     </tr>
@@ -30,30 +31,28 @@
                     <tfoot>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
                         <th>Email</th>
-                        <th>Messages</th>
-                        <th>Rating</th>
+                        <th>Class Name</th>
+                        <th>Price</th>
+                        <th>Image</th>
+                        <th>Create at</th>
                         <th class="text-center">Action</th>
 
                     </tr>
                     </tfoot>
                     <tbody>
-                    @foreach($cmts as $cmt)
+                    @foreach($orders as $order)
                         <tr>
-                            <td>{{$cmt->id}}</td>
-                            <td>{{$cmt->name}}</td>
-                            <td>{{$cmt->email}}</td>
-                            <td>{{$cmt->messages}}</td>
-                            <td>{{$cmt->rating}}</td>
+                            <td>{{$order->id}}</td>
+                            <td>{{$order->email}}</td>
+                            <td>{{$order->class_name}}</td>
+                            <td>{{$order->price}}</td>
+                            <td style="width: 300px;max-height: 200px;"><img src={{url('front/img/classes/classes-details/'.$order->image)}}  alt="" class="img"></td>
+                            <td>{{$order->created_at}}</td>
                             <td class="project-actions text-center">
-                                <a class="btn btn-danger btn-sm" href="./comment/deletecheck/{{$cmt->id}}">
-                                    <i class="fas fa-trash"></i>Reject
-                                </a>
-                                <a class="btn btn-success btn-sm" href="./comment/add/{{$cmt->id}}">
+                                <a class="btn btn-success btn-sm" href="./order/add/{{$order->id}}">
                                     <i class="fas fa-check"></i>Accept
                                 </a>
-                            </td>
                             </td>
                         </tr>
                     @endforeach
@@ -73,40 +72,32 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
                         <th>Email</th>
-                        <th>Messages</th>
-                        <th>Rating</th>
-                        <th>Action</th>
-
+                        <th>Class Name</th>
+                        <th>Price</th>
+                        <th>Image</th>
+                        <th>Create at</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
                         <th>Email</th>
-                        <th>Messages</th>
-                        <th>Rating</th>
-                        <th>Action</th>
-
+                        <th>Class Name</th>
+                        <th>Price</th>
+                        <th>Image</th>
+                        <th>Create at</th>
                     </tr>
                     </tfoot>
                     <tbody>
-                    @foreach($comments as $comment)
+                    @foreach($orderes as $orderss)
                         <tr>
-                            <td>{{$comment->id}}</td>
-                            <td>{{$comment->name}}</td>
-                            <td>{{$comment->email}}</td>
-                            <td>{{$comment->messages}}</td>
-                            <td>{{$comment->rating}}</td>
-                            <td class="project-actions text-center">
-                                <a class="btn btn-danger btn-sm" href="./comment/delete/{{$comment->id}}">
-                                    <i class="fas fa-trash">
-                                    </i>
-                                    Delete
-                                </a>
-                            </td>
+                            <td>{{$orderss->id}}</td>
+                            <td>{{$orderss->email}}</td>
+                            <td>{{$orderss->class_name}}</td>
+                            <td>{{$orderss->price}}</td>
+                            <td style="width: 300px;max-height: 200px;"><img src={{url('front/img/classes/classes-details/'.$orderss->image)}}  alt="" class="img"></td>
+                            <td>{{$orderss->created_at}}</td>
                         </tr>
                     @endforeach
                     </tbody>

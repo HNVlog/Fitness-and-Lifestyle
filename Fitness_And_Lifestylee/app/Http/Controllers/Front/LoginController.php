@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customer_couser;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -38,6 +40,7 @@ class LoginController extends Controller
     }
 
     public function logout () {
+        Cart::destroy();
         //logout user
         auth()->logout();
         // redirect to homepage

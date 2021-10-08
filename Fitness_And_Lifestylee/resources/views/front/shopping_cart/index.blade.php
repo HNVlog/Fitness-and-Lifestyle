@@ -45,7 +45,7 @@
                                 <tbody>
                                 @foreach($carts as $cart)
                                     <tr>
-                                        <td class="cart-pic first-row"><img src="front/img/{{$cart->options->images[0]->path}}" alt=""></td>
+                                        <td class="cart-pic first-row"><img src="front/img/classes/classes-details/{{$cart->options->images[0]->path}}" alt=""></td>
                                         <td class="cart-title filter-row">
                                             <h5><strong>{{$cart->name}}</strong></h5>
                                         </td>
