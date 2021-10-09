@@ -85,7 +85,7 @@
                                     <li><span class="icon_clock_alt"></span>{{ $classesProduct->study_time }}</li>
                                 </ul>
                                 </p>
-                                <h4><a href="#">{{ $classesProduct->name }}</a></h4>
+                                <h4><a href="./classes/detail?Product_Id={{$classesProduct->id}}">{{ $classesProduct->name }}</a></h4>
                                 <h6>{{ $classesProduct->teacher_name }}<span>- Yoga Teacher</span></h6>
                                 <a href="./classes/detail?Product_Id={{$classesProduct->id}}" class="class-btn">JOIN NOW</a>
                             </div>
@@ -132,7 +132,7 @@
                             </div>
                             <div class="classes__item__text">
                                 <p>{{ $classProduct->study_time }}</p>
-                                <h4><a href="#">{{ $classProduct->name }}</a></h4>
+                                <h4><a href="./classes/detail?Product_Id={{$classProduct->id}}">{{ $classProduct->name }}</a></h4>
                                 <h6>{{ $classProduct->teacher_name }}<span>- Yoga Teacher</span></h6>
                                 <a href="./classes/detail?Product_Id={{$classProduct->id}}" class="class-btn">JOIN NOW</a>                            </div>
                         </div>

@@ -36,7 +36,7 @@
                                         </p>
                                     </div>
 
-                                    <input type="text" id="inputName" class="form-control" name="title">
+                                    <input type="text" id="inputName" class="form-control" name="name">
                                 </div>
                                 <div class="form-group">
                                     <label for="teacher_name">Teacher</label>
@@ -45,7 +45,7 @@
                                         <span>{{ $message }}</span>
                                         @enderror
                                     </p>
-                                    <input type="text" id="teacher_name" class="form-control" name="subtitle">
+                                    <input type="text" id="teacher_name" class="form-control" name="teacher_name">
                                 </div>
                                 <div class="form-group">
                                     <label for="price">Price</label>
@@ -54,7 +54,7 @@
                                         <span>{{ $message }}</span>
                                         @enderror
                                     </p>
-                                    <input type="number" id="price" class="form-control" name="category">
+                                    <input type="number" id="price" class="form-control" name="price">
                                 </div>
                                 <div class="form-group">
                                     <label for="level">Level</label>
@@ -63,7 +63,7 @@
                                         <span>{{ $message }}</span>
                                         @enderror
                                     </p>
-                                    <input type="text" id="level" class="form-control" name="category">
+                                    <input type="text" id="level" class="form-control" name="level">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
@@ -73,7 +73,7 @@
                                             <span>{{ $message }}</span>
                                             @enderror
                                         </p>
-                                        <input type="text" id="study_date" class="form-control" name="category">
+                                        <input type="text" id="study_date" class="form-control" name="study_date">
                                     </div>
                                     <div class="col-sm-6">
                                         <label for="study_time">Study time</label>
@@ -82,7 +82,7 @@
                                             <span>{{ $message }}</span>
                                             @enderror
                                         </p>
-                                        <input type="text" id="study_time" class="form-control" name="category">
+                                        <input type="text" id="study_time" class="form-control" name="study_time">
                                     </div>
                                 </div>
 
@@ -93,7 +93,7 @@
                                         <span>{{ $message }}</span>
                                         @enderror
                                     </p>
-                                    <input type="text" id="tag" class="form-control" name="category">
+                                    <input type="text" id="tag" class="form-control" name="tag">
                                 </div>
 
 
@@ -117,7 +117,7 @@
                                         @enderror
                                     </p>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="avatar" {{--accept=".jpg, .png"--}} name="image_1">
+                                        <input type="file" class="custom-file-input" id="avatar" {{--accept=".jpg, .png"--}} name="avatar">
                                         <label class="custom-file-label" for="avatar">Choose file</label>
                                     </div>
                                 </div>
@@ -130,7 +130,7 @@
                                         @enderror
                                     </p>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="path" {{--accept=".jpg, .png"--}} name="image_1">
+                                        <input type="file" class="custom-file-input" id="path" {{--accept=".jpg, .png"--}} name="path">
                                         <label class="custom-file-label" for="path">Choose file</label>
                                     </div>
                                 </div>

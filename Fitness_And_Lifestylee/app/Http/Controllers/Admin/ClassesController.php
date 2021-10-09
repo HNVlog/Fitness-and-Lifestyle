@@ -23,6 +23,9 @@ class ClassesController extends Controller
     }
     public function delete($id){
         Product::destroy($id);
+        ProductImage::destroy($id);
+        ClassesDetail::destroy($id);
+
         return back();
     }
     public function details($id){
@@ -36,6 +39,7 @@ class ClassesController extends Controller
         return view('admin.classes-add');
     }
     public function createnew(Request $request){
+        $count=Product::all()->count();
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'teacher_name' =>'required',
@@ -49,14 +53,13 @@ class ClassesController extends Controller
             'tag'=>'required',
             'avatar'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'path'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'path_1'=>'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator->errors());
         }
 
         $fileupnew = $request->path;
-        $pathnew = 'front/img/classes/';
+        $pathnew = 'front/img/classes/classes-details/';
         $file_namenew = $fileupnew->getClientOriginalName();
         $fileupnew->move($pathnew,$file_namenew);
 
@@ -67,14 +70,14 @@ class ClassesController extends Controller
 
         $product=new Product();
         $product->id=$request->id;
-        $product->product_category_id=$request->product_category_id;
+        $product->product_category_id=1;
+        $product->featured=1;
         $product->name=$request->name;
         $product->teacher_name=$request->teacher_name;
         $product->level=$request->level;
+        $product->price=$request->price;
         $product->study_date=$request->study_date;
         $product->study_time=$request->study_time;
-        $product->price=$request->price;
-        $product->featured=$request->featured;
         $product->tag=$request->tag;
         $product->save();
 
@@ -86,14 +89,14 @@ class ClassesController extends Controller
         $details->study_date=$request->study_date;
         $details->study_time=$request->study_time;
         $details->content=$request->content;
-        $details->name=$request->name;
         $details->title='';
+        $details->name=$request->name;
         $details->avatar=$file_namenew1;
         $details->save();
 
         $img=new ProductImage();
-        $img->id=$request->id;
-        $img->product_id=$request->product_id;
+//        $img->id=$request->id;
+        $img->product_id=$count+1;
         $img->path=$file_namenew;
         $img->path_1=null;
         $img->path_2=null;

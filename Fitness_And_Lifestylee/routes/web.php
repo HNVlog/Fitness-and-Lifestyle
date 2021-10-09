@@ -72,6 +72,11 @@ Route::prefix('ad')->group(function (){
             Route::get('/delete/{id}',[Admin\OrderController::class,'delete']);
             Route::get('/add/{id}',[Admin\OrderController::class,'add']);
         });
+
+        Route::prefix('support')->group(function (){
+            Route::get('/',[Admin\AppointmentController::class,'index']);
+            Route::get('/add/{id}',[Admin\AppointmentController::class,'add']);
+        });
     });
     Route::prefix('login')->group(function (){
         Route::get('/',[Admin\LoginController::class,'index'])->name('login');
@@ -88,7 +93,11 @@ Route::prefix('ad')->group(function (){
 
 //user
 
-Route::get('/', [Front\HomeController::class, 'index']);
+Route::prefix('')->group(function (){
+    Route::get('/', [Front\HomeController::class, 'index']);
+    Route::post('/', [Admin\AppointmentController::class, 'postAppointment']);
+
+});
 Route::get('/about', [Front\AboutController::class, 'index']);
 Route::get('/classes', [Front\ClassesController::class, 'index']);
 Route::get('/blog', [Front\BlogController::class, 'index']);

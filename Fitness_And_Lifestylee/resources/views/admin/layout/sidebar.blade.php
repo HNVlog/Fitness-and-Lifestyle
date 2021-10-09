@@ -40,6 +40,7 @@
                 <a class="collapse-item" href="/ad/blog">Blog</a>
                 <a class="collapse-item" href="/ad/comment">Comment</a>
                 <a class="collapse-item" href="/ad/order">Order</a>
+                <a class="collapse-item" href="/ad/support">Support</a>
             </div>
         </div>
     </li>

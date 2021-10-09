@@ -4409,3 +4409,7 @@ ol {
 .blog__recent__item h6 a:hover {
     color: #5768AD;
 }
+.error-home{
+    color: #ffffff;
+    text-align: left;
+}

@@ -242,7 +242,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="instructor__item">
                             <div class="instructor__item__pic">
-                                <img src="front/img/{{$classDetail->avatar}}" alt="">
+                                <img src="front/img/classes/ClassesTeacherName/{{$classDetail->avatar}}" alt="">
                             </div>
                             <div class="instructor__item__text">
                                 <h5>{{$classDetail->teacher_name}}</h5>
@@ -268,24 +268,53 @@
                         </div>
                     </div>
                 </div>
-                <form action="#" class="appointment__form">
+                <form action="" method="post" class="appointment__form">
+                    @csrf
                     <div class="row">
                         <div class="col-lg-6">
-                            <input type="text" placeholder="Name">
+                            <div @error('name') class="error error-home" @enderror>
+                                @error('name')
+                                <span>{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <input type="text" placeholder="Name" name="name">
                         </div>
                         <div class="col-lg-6">
-                            <input type="text" placeholder="Email">
+                            <div @error('email') class="error error-home" @enderror>
+                                @error('email')
+                                <span>{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <input type="text" placeholder="Email" name="email">
                         </div>
                         <div class="col-lg-6">
-                            <input type="text" placeholder="Phone">
+                            <div @error('phone') class="error error-home" @enderror>
+                                @error('phone')
+                                <span>{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <input type="text" placeholder="Phone" name="phone">
                         </div>
                         <div class="col-lg-6">
-                            <select class="class-select">
-                                <option value="">Choose Your Class</option>
+                            <div @error('classes') class="error error-home" @enderror>
+                                @error('classes')
+                                <span>{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <select class="class-select" name="classes" required>
+                                <option disabled>Choose Your Class</option>
+                                <option value="Yoga for beginners">Yoga for beginners</option>
+                                <option value="Yoga for kids">Yoga for kids</option>
+                                <option value="Yoga for Seniors">Yoga for Seniors</option>
                             </select>
                         </div>
                         <div class="col-lg-12 text-center">
-                            <textarea placeholder="Message"></textarea>
+                            <div @error('message') class="error error-home" @enderror>
+                                @error('message')
+                                <span>{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <textarea placeholder="Message" name="message"></textarea>
                             <button type="submit">Submit</button>
                         </div>
                     </div>
