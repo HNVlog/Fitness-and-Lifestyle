@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'CodeLean',
                 'email' => 'codelean@gmail.com',
                 'phone' => '0123456789',
+                'address'=>' 247 Cau Giay, Ha Noi',
                 'password' => Hash::make('123456'),
                 'avatar' => 'default-avatar.jpg',
                 'level' => 0,
@@ -32,6 +33,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'admin',
                 'email' => 'admin@gmail.com',
                 'phone' => '0223456789',
+                'address'=>' 16 Dong Da, Ha Noi',
                 'password' => Hash::make('123456'),
                 'avatar' => 'avatar-7.jpg',
                 'level' => 0,
@@ -41,6 +43,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Shane Lynch',
                 'email' => 'shanelynch@gmail.com',
                 'phone' => '0323456789',
+                'address'=>'  24 Thanh Xuan, Ha Noi',
                 'password' => Hash::make('123456'),
                 'avatar' => 'avatar-1.jpg',
                 'level' => 1,
@@ -50,6 +53,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Brandon Kelley',
                 'email' => 'brandonkelley@gmail.com',
                 'phone' => '0423456789',
+                'address'=>'  247 Cau Giay, Ha Noi',
                 'password' => Hash::make('123456'),
                 'avatar' => 'avatar-2.jpg',
                 'level' => 1,
@@ -59,6 +63,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Roy Banks',
                 'email' => 'roybanks@gmail.com',
                 'phone' => '0523456789',
+                'address'=>' 184 Main Collins Streets, New York',
                 'password' => Hash::make('123456'),
                 'avatar' => 'avatar-3.jpg',
                 'level' => 1,
@@ -594,14 +599,6 @@ class DatabaseSeeder extends Seeder
                 'path_3' => 'detail9-3.jpg',
                 'path_4' => 'detail9-4.jpg',
             ],
-//            [
-//                'product_id' => 10,
-//                'path' => 'detail9.jpg',
-//                'path_1' => 'detail9-1.jpg',
-//                'path_2' => 'detail9-2.jpg',
-//                'path_3' => 'detail9-3.jpg',
-//                'path_4' => 'detail9-4.jpg',
-//            ],
         ]);
 
         DB::table('blog_categories')->insert([
@@ -631,7 +628,7 @@ class DatabaseSeeder extends Seeder
             [
                 'id' => 1,
                 'product_id' => 1,
-                'address'=>'  247 Cau Giay, Ha Noi',
+                'address'=>' 247 Cau Giay, Ha Noi',
                 'teacher_name' => 'Kerenza Ladonna',
                 'study_date'=> ' Mon, Wed, Fri ',
                 'study_time' => '8:00 - 10:00',

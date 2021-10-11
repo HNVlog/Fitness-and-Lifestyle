@@ -75,8 +75,10 @@ Route::prefix('ad')->group(function (){
 
         Route::prefix('support')->group(function (){
             Route::get('/',[Admin\AppointmentController::class,'index']);
-            Route::get('/add/{id}',[Admin\AppointmentController::class,'add']);
+            Route::get('/answer/{id}',[Admin\AppointmentController::class,'answer']);
+            Route::post('/answer/{id}',[Admin\AppointmentController::class,'add']);
         });
+
     });
     Route::prefix('login')->group(function (){
         Route::get('/',[Admin\LoginController::class,'index'])->name('login');
@@ -105,7 +107,11 @@ Route::get('/blog/{id}', [Front\BlogDetailController::class, 'show']);
 Route::post('/blog/{id}', [Front\BlogDetailController::class, 'postComment']);
 Route::get('/search', [Front\BlogController::class, 'index']);
 Route::post('/search', [Front\BlogController::class, 'index'])->name('search');
-Route::get('/pricing', [Front\PricingController::class, 'pricing']);
+Route::prefix('pricing')->group(function (){
+    Route::get('/', [Front\PricingController::class, 'pricing']);
+    Route::post('/', [Admin\AppointmentController::class, 'postAppointment']);
+
+});
 Route::get('/faq', [Front\FaqController::class, 'faq']);
 Route::get('/contact', [Front\ContactController::class, 'contact']);
 

@@ -37,11 +37,11 @@ class AccountController extends Controller
     public function update1(Request $request, $id)
     {
         $request->validate([
-            'email' => ['required', Rule::unique('users','email')->ignore(User::FindOrFail($id))],
-            'name' => 'required',
-            'phone' => 'required',
-            'address'=>'required',
-            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'email' => Rule::unique('users','email')->ignore($id)
+//            'name' => 'required',
+//            'phone' => 'required',
+//            'address'=>'required',
+//            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $fileup = $request->avatar;
@@ -58,7 +58,7 @@ class AccountController extends Controller
         $upload->save();
 
 
-        Auth::user()->update($request->only(['avatar','email','name','phone','address']));
+//        Auth::user()->update($request->only(['avatar','email','name','phone','address']));
 
         return back()->with('success', 'Account successfully changed!');
     }

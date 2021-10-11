@@ -21,7 +21,7 @@ class CreateAppointmentTable extends Migration
             $table->string('classes');
             $table->string('message');
             $table->string('level');
-
+            $table->string('answer')->nullable();
             $table->timestamps();
         });
     }

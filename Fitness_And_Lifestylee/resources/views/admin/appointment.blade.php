@@ -53,8 +53,8 @@
                             <td>{{$appes->message}}</td>
                             <td>{{$appes->created_at}}</td>
                             <td class="project-actions text-center">
-                                <a class="btn btn-success btn-sm" href="./support/add/{{$appes->id}}">
-                                    <i class="fas fa-check"></i>Done
+                                <a class="btn btn-success btn-sm" href="./support/answer/{{$appes->id}}">
+                                    <i class="fas fa-share"></i>Answer
                                 </a>
                             </td>
                         </tr>
@@ -80,6 +80,7 @@
                         <th>Phone</th>
                         <th>Classes</th>
                         <th>Message</th>
+                        <th>Answer</th>
                         <th>Create at</th>
                     </tr>
                     </thead>
@@ -91,6 +92,7 @@
                         <th>Phone</th>
                         <th>Classes</th>
                         <th>Message</th>
+                        <th>Answer</th>
                         <th>Create at</th>
                     </tr>
                     </tfoot>
@@ -103,6 +105,7 @@
                             <td>{{$appss->phone}}</td>
                             <td>{{$appss->classes}}</td>
                             <td>{{$appss->message}}</td>
+                            <td>{!! $appss->answer !!}</td>
                             <td>{{$appss->created_at}}</td>
                         </tr>
                     @endforeach
