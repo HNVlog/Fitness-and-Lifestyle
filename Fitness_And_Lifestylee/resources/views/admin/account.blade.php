@@ -55,8 +55,8 @@
                                 <a class="btn btn-info btn-sm" href="./account/edit/{{$account->id}}">
                                     <i class="fas fa-pencil-alt"></i>Edit
                                 </a>
-                                <a class="btn btn-danger btn-sm" href="/account/delete/{{$account->id}}"><i class="fas fa-trash"></i>Delete
-                                </a>
+{{--                                <a class="btn btn-danger btn-sm" href="/account/delete/{{$account->id}}"><i class="fas fa-trash"></i>Delete--}}
+{{--                                </a>--}}
                             </td>
                         </tr>
 {{--                        @endforeach--}}

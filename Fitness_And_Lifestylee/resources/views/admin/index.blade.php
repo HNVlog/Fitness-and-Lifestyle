@@ -402,6 +402,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary">Work progress</h6>
                             </div>
                             <div class="card-body">
+
                                 @if(count($orders)==0)
                                     <h4 class="small font-weight-bold">Order<span
                                             class="float-right">0%</span></h4>
@@ -456,6 +457,7 @@
                                         <div class="progress-bar bg-info" role="progressbar" style="width: 100%"
                                              aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
+
                                     @if(count($orders)==0&&count($support)!=0&&count($comment)!=0)
                                         <h4 class="small font-weight-bold">Progress <span
                                                 class="float-right">{{round((+count($sup1)/count($support)*100+100-count($cmt)/count($comment)*100+100)/4,2)}}%</span></h4>
@@ -477,27 +479,50 @@
                                             <div class="progress-bar bg-success" role="progressbar" style="width: {{(count($order1)/count($orders)*100+count($sup1)/count($support)*100)/4}}%"
                                                  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                    @elseif(count($orders)==0&&count($support)!=0&&count($comment)==0)
+                                    @elseif(count($orders)==0&&count($support)==0&&count($comment)==0)
                                         <h4 class="small font-weight-bold">Progress <span
                                                 class="float-right">25%</span></h4>
                                         <div class="progress">
                                             <div class="progress-bar bg-success" role="progressbar" style="width: 25%"
                                                  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                    @elseif((count($order1)/count($orders)*100+count($sup1)/count($support)*100+100-count($cmt)/count($comment)*100+100)/4!=100)
+                                    @elseif(count($orders)==0&&count($support)==0&&count($comment)!=0)
                                         <h4 class="small font-weight-bold">Progress <span
-                                                class="float-right">{{round((count($order1)/count($orders)*100+count($sup1)/count($support)*100+100-count($cmt)/count($comment)*100+100)/4,2)}}%</span></h4>
+                                                class="float-right">{{round((100-count($cmt)/count($comment)*100+100)/4,2)}}%</span></h4>
                                         <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: {{(count($order1)/count($orders)*100+count($sup1)/count($support)*100+100-count($cmt)/count($comment)*100+100)/4}}%"
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: {{(100-count($cmt)/count($comment)*100+100)/4}}%"
+                                                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    @elseif(count($orders)==0&&count($support)!=0&&count($comment)==0)
+                                        <h4 class="small font-weight-bold">Progress <span
+                                                class="float-right">{{round((count($sup1)/count($support)*100+100)/4,2)}}%</span></h4>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: {{(count($sup1)/count($support)*100+100)/4}}%"
+                                                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    @elseif(count($orders)!=0&&count($support)==0&&count($comment)==0)
+                                        <h4 class="small font-weight-bold">Progress <span
+                                                class="float-right">{{round((count($order1)/count($orders)*100+100)/4,2)}}%</span></h4>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: {{(count($order1)/count($orders)*100+100)/4}}%"
                                                  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     @else
-                                        <h4 class="small font-weight-bold">Progress <span
-                                                class="float-right">Complete!</span></h4>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
-                                                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
+                                        @if((count($order1)/count($orders)*100+count($sup1)/count($support)*100+100-count($cmt)/count($comment)*100+100)/4!=100)
+                                            <h4 class="small font-weight-bold">Progress <span
+                                                    class="float-right">{{round((count($order1)/count($orders)*100+count($sup1)/count($support)*100+100-count($cmt)/count($comment)*100+100)/4,2)}}%</span></h4>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: {{(count($order1)/count($orders)*100+count($sup1)/count($support)*100+100-count($cmt)/count($comment)*100+100)/4}}%"
+                                                     aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        @else
+                                            <h4 class="small font-weight-bold">Progress <span
+                                                    class="float-right">Complete!</span></h4>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
+                                                     aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        @endif
                                     @endif
 
 
@@ -518,7 +543,7 @@
                                 <div class="chart-pie pb-2">
                                     {!! $chart->container() !!}
                                 </div>
-                                <div class="mt-4 small" style="margin-left: 75px;">
+                                <div class="mt-4 small  _web-inspector-hide-shortcut_"  style="margin-left: 75px;visibility: hidden !important;">
                                     <span class="mr-2"><i class="fas fa-circle text-primary"></i> Classes</span>
                                     <span class="mr-2"><i class="fas fa-circle text-success"></i> Blog</span>
                                     <span class="mr-2"><i class="fas fa-circle text-info"></i> Account</span>

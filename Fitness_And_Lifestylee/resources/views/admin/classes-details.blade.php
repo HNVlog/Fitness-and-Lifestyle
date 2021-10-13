@@ -31,7 +31,7 @@
                         <tr>
                             <td>{{$product->id}}</td>
                             <td>{{$product->name}}</td>
-                            <td><img src={{url('front/img/user/'.$productes->avatar)}} alt="" class="img-avt"></td>
+                            <td><img src={{url('front/img/classes/ClassesTeacherName/'.$productes->avatar)}} alt="" class="img-avt"></td>
                             <td style="overflow: hidden;">{!! $productes->content !!}</td>
                             <td><img src={{url('front/img/classes/classes-details/'.$img->path)}}  alt="" class="img"></td>
                             <td class="project-actions text-center">

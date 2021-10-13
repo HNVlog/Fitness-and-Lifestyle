@@ -63,7 +63,13 @@
                                         <span>{{ $message }}</span>
                                         @enderror
                                     </p>
-                                    <input type="text" id="level" class="form-control" name="level">
+                                    <select class="class-select admin" name="level" required>
+                                        <option disabled>Choose Your Class</option>
+                                        <option value="Yoga for beginners">Yoga for beginners</option>
+                                        <option value="Yoga for kids">Yoga for kids</option>
+                                        <option value="Yoga for Seniors">Yoga for Seniors</option>
+                                    </select>
+
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
